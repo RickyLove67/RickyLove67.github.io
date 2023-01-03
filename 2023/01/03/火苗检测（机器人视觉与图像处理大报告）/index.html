@@ -1,0 +1,1182 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="火苗检测（机器人视觉与图像处理大报告）, RickyLove">
+    <meta name="description" content="摘 要
+火灾一直威胁着人类生命和财产的安全，提前检测出火苗一直是一个重要的研究课题。通过机器人视觉与图像处理这门课的学习，选择火苗检测识别作为课程设计的方向。受能力所限，本文只针对室内场景的打火机火苗视频，研究了火苗的三种静态特性，提出了一">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>火苗检测（机器人视觉与图像处理大报告） | RickyLove</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">RickyLove</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">RickyLove</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">火苗检测（机器人视觉与图像处理大报告）</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-01-03
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><strong>摘 要</strong></p>
+<p>火灾一直威胁着人类生命和财产的安全，提前检测出火苗一直是一个重要的研究课题。通过机器人视觉与图像处理这门课的学习，选择火苗检测识别作为课程设计的方向。受能力所限，本文只针对室内场景的打火机火苗视频，研究了火苗的三种静态特性，提出了一套较为基础的火苗检测方法。本文的主要研究内容有:</p>
+<p>(1）研究了静态火苗的颜色特性与轮廓形状特性。利用火苗的颜色特征分割火苗图像，分析火苗图像在HSV颜色模型下的分割结果。</p>
+<p>(2）研究了火苗视频中的与轮廓形状特性。根据打火机火苗较为固定的轮廓形状特性，找到标准值，作为识别检测打火机火苗的依据。</p>
+<p>关键词：室内场景，图像分割，特征提取，火苗检测</p>
+<p><strong>Abstract</strong></p>
+<p>Fire has always threatened the safety of human life and property. Detecting fire in advance has always been an important research topic. Through the study of robot vision and image processing, flame detection and recognition is selected as the direction of course design. Limited by the personal ability, this paper only studies the three static characteristics of the lighter flame video in the indoor scene, and puts forward a set of more basic flame detection methods. The main research contents of this paper are as follows:</p>
+<p>(1) The color characteristics and contour shape characteristics of static flame are studied. The fire image is segmented by using the color characteristics of the fire, and the segmentation results of the fire image under the HSV color model are analyzed.</p>
+<p>(2) The contour and shape characteristics in flame video are studied. According to the relatively fixed contour shape characteristics of lighter flame, find the standard value as the basis for identifying and detecting lighter flame.</p>
+<p><strong>Keywords:</strong> indoor scene, picture segmentation, feature extraction, the flame detection</p>
+<p><strong>目 录</strong></p>
+<p><strong>摘要</strong> ………………………………………………………………………………..Ⅰ</p>
+<p><strong>Abstract</strong> …………………………………………………………………………….Ⅱ</p>
+<p><strong>第1章 绪论</strong> </p>
+<p>1.1 课题背景及研究的目的和意义……………………………………………….1</p>
+<p>1.2 国内外研究现状……………………………………………………………….2</p>
+<p>1.3 火苗识别方法分类…………………………………………………………….2</p>
+<p>1.4 本文的主要研究内容………………………………………………………….3</p>
+<p><strong>第2章 火苗视频的帧提取</strong></p>
+<p>2.1 火苗视频的结构……………………………………………………………….5</p>
+<p> 2.2 火苗视频的帧提取…………………………………………………………….5</p>
+<p>2.3 本章小结……………………………………………………………………….5</p>
+<p><strong>第3章 火焰图像预处理</strong></p>
+<p>3.1 颜色模型介绍………………………………………………………………….6</p>
+<p>3.2 图像阈值滤波………………………………………………………………….7</p>
+<p>3.3 本章小结……………………………………………………………………….8</p>
+<p><strong>第4章 火焰图像的特征提取</strong></p>
+<p>4.1 静态特征介绍………………………………………………………………….9</p>
+<p>4.2 静态特征的提取和比较……………………………………………………….9</p>
+<p>4.3 本章小结……………………………………………………………………….10</p>
+<p><strong>结论</strong>………………………………………………………………………………..…11</p>
+<p><strong>参考文献</strong>………………………………………………………………………….…12</p>
+<p><strong>致谢</strong>………………………………………………………………………………….. 13</p>
+<p><strong>第1章 绪 论</strong></p>
+<h2 id="1-1-课题背景及研究的目的和意义"><a href="#1-1-课题背景及研究的目的和意义" class="headerlink" title="1.1 课题背景及研究的目的和意义"></a>1.1 课题背景及研究的目的和意义</h2><p>​        火是人类进入文明世界的标志，人类可以发生并且使用火，是人类与动物的最大区别之一，火是人类进入文明社会的一个重要因素，然而和其它许多事物一样，火也具有两面性[1]。一方面，火给我们的日常生活带来了巨大便利，推动人类社会不断的向前进步发展;但是，一旦使用不当，火又会有很大的破坏性，甚至会毁灭我们所拥有的一切。在人类历史上，火灾对我们造成的伤害与损失不计其数[2]。例如森林火灾，伴随着全球气候变化以及人类活动范围增加，各国的森林资源安全性都受到了极大的挑战。森林火灾破坏性很大，不仅造成经济损失人员伤亡，还导致土壤沙漠化，进一步破坏生态环境。气候变暖常常导致火灾频繁发生，2020年伊始，澳洲持续近四个月的大火震惊国内外，澳大利亚这场大火导致数千亩林地被烧毁，几十万民众背井离乡，野火将澳大利亚林地烧焦，加剧了气候干旱。我国火灾也异常严峻，去年，我国全境共有2400起森林火灾发生，当中有9起重大火灾、三起特大火灾，据官方统计14003公顷森林面积受影响[3]。足见森林火灾威胁巨大，因此火焰检测识别显得非常重要。我也希望在此过程中通过学习贡献出自己的一份力量。下图1-1展示了几次典型的火灾。</p>
+<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image002.gif" alt="img"><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image004.gif" alt="img"></p>
+<p>​              (a)卫星拍摄澳大利亚大火(2020.01.06)  (b)四川凉山森林火灾（2020.03.31)</p>
+<p>​        在一些严禁烟火的地方，例如大型仓库、油库、加油站，一旦出现火苗，将会发生难以预料的情况。在商场等公共场合也发生过多起蓄意纵火的行为，严重威胁公众的安全。因此有效的火苗检测识别方法对尽早的发现火灾，对于社会有着重大的意义。</p>
+<p>​        人们对于火灾报警装置的研究更是由来已久。在19世纪50年代，美国与德国等西方国家就研究并制造出了简易的火灾报警装置。目前，市场上以及实际应用的火灾报警装置主要是基于传感器探测的报警装置。传统的基于传感器的火灾探测装置，主要是利用传感器探测环境中的温度、烟雾浓度、气体含量、火焰光线等。当传感器获取的变量值达到预定的值，就会发出相应的火灾报警信号[4-6]。传感器需要火灾达到一定程度才能探测到相应的变量值，而且在许多场合由于环境的限制传感器探测存在着误差。往往在这类报警器作用之后，火灾已经到了较为严重的阶段。</p>
+<p>​        近些年，随着视频监控和数字图像处理技术的迅速发展，利用火灾的视觉特征进行检测识别的技术也在不断向前推进。因此我希望通过机器人视觉与图像这门课程的学习，利用图像处理技术，根据火焰的静态特征进行检测识别。</p>
+<h2 id="1-2-国内外研究现状"><a href="#1-2-国内外研究现状" class="headerlink" title="1.2 国内外研究现状"></a>1.2 国内外研究现状</h2><p>​        传统的火焰识别多基于传感器获取火灾现场烟雾或者化学变化信息，而对火焰本身开展研究较少。同时传统检测手段的成本比较高，不能被反复的利用。随着科技的及展，人们对火焰的特征研究更加的深入，出现了基于火焰特征的识别方法，这使得火焰识别的效率以及准确率得到了很大的提高。</p>
+<p>​        图像是一种数字信号，它反映了数字对象的许多特征信息，所以基于图像识别火焰的技术前景广阔。目前，海内外诸多科研院所以及公司都推出来自己的火焰识别技术。不断推陈出新，利用不同参数模型来进行识别。</p>
+<p>​        早在20世纪初，国外就开展了火焰检测的研究，用于对火灾的预警。这一研究过程经历了传感器检测，数字图像处理技术结合传感器识别以及直接对图像检测识别火焰的过程。</p>
+<p>​        目前，国内对火焰识别的研究也有很多。随着数字图像处理技术的发展，识别方法也不断更新。技术要求越来越高，方法不断完善，识别效率也逐渐提高。</p>
+<p>​        我通过对文献的阅读学习，经常被用到的图像识别算法是利用传感器结合图像的某些特征进行火焰识别。我学习并提出对火焰的颜色、静态特性等组合起来对火焰进行识别。</p>
+<h2 id="1-3-火苗识别方法分类"><a href="#1-3-火苗识别方法分类" class="headerlink" title="1.3 火苗识别方法分类"></a>1.3 火苗识别方法分类</h2><p>​       近一个世纪以来，人们不断探索各种火焰识别检测的方法，这些方法主要分为两大类，一类是基于不同类型的传感器进行的检测识别，另一类是基于视觉图像识别的火焰检测。</p>
+<p>​       基于传感器的火灾探测器主要分为感温探测器、感烟探测器、气敏式探测器以及复合式等类型[7,8]。</p>
+<p>​       感温火灾探测器的传感器工作方式主要有两种[9]。一种是热传感器，检测到的温度超过了预定义的阈值（通常是58℃或更高)，定温报警装置启动。第二钟是温差式热传感器。当周围的温度上升速度超过内置的7至8℃时，报警装置就会启动。基于热传感器的报警虽然一般比较可靠的，但是，其对火反应迟钝，往往已经在酿成大祸或已造成既定损失后才检测到火焰。</p>
+<p>​        感烟火灾探测器是通过检测物质燃烧初期所产生的气溶胶或烟雾粒子的浓度等进行火焰的检测。所以感烟探测器一般不能用在有烟滞留的场所以及较为空旷的场所。适用范围较为狭窄。</p>
+<p>​        可以看出对于基于不同类型的传感器来说，其原理是根据传感器测试不同物理量来进行检测。这些不同种类的基于传感器的可靠性，主要依赖于对于测试相应物理量的灵敏度，以及这些装置工作的具体环境和位置。</p>
+<p>​        对于基于视觉图像识别的火焰检测来说，随着近一世纪以来电子技术和图像视频技术的快速发展，基于视觉的火焰检测识别技术也得到飞速的发展。</p>
+<p>​        基于视觉图像识别的火焰检测主要都有通过HSV空间的颜色信息提取潜在火灾区域，然后通过颜色与帧间变化信息获取火焰的时空轮廓特征，并且最终采用神经网络的方法来进行识别。还有以建立平滑高斯颜色直方图的方式检测类似的火焰区域，然后通过图像序列之间像素随时间的变化来确认实际的火焰像素点。接下来通过腐蚀操作清除虚假的火焰像素点，运用区域生长的方法发现缺少的火焰像素点。还有的用小波域分析视频中的静态火焰以及火焰的闪烁频率。运用小波变换检测火苗边界的信息周期变化，通过计算移动火焰区域的空间小波变换来检测火焰区域的颜色变化，最终结合火焰区域边界的不规则性来检测。还有的利用颜色信息和图像序列运动信息提取出感兴趣区域，然后利用火焰颜色局部对比度分进一步去除非火焰的区域，最终用径向基核函数的支持向量机方式进行识别。还有的利用图像序列时间与空间信息的方法检测火灾。先将视频分为空时块，从这些时空块中提取协方差特征。利用火焰相关颜色区域的空间和时间特征为特征向量，用支持向量机的方式进行检测。还有的利用三维信息来检测火灾的方法。指出先用简单的颜色与背景差分方法提取火灾候选区域，生成形状、大小、运动变化三个变量的高斯模型，最后立体相机利用左边与右边两个相机的匹配算法重建出火的真实模型。还有的利用一种对帧图像间相关性算法优化的方法，这种优化方法能够连续的对目标背景进行更新,利用更新完成的背景图像进行邻域背景比较,获得目标物轮廓，从而提取出火焰轮廓。还有的采用邻域帧像素的变化来刻画目标物的面积变化。采用这一方法快速的提取出火焰的动态特征，接着结合火焰的颜色特征，综合判断火焰。</p>
+<p>​        可以看出来近些年在基于视觉图像识别的火焰检测方面发展进步有多么的大，这也是我学习通过图像识别来进行火苗检测识别的一个原因。通过图像识别进行火苗检测识别的方法多种多样，作为一个初学者，虽然不能一一掌握，但是通过阅读相关文献，也能了解到其中的脉络，并自己设计一个较为初步的火苗识别方法。</p>
+<h2 id="1-4-本文的主要研究内容"><a href="#1-4-本文的主要研究内容" class="headerlink" title="1.4 本文的主要研究内容"></a>1.4 本文的主要研究内容</h2><p>​        本文的主要研究内容是进行基于图像识别操作的火苗检测的算法研究，以室内场景打火机的火苗为研究对象，通过一系列的图像处理算法来分析火苗的特性，从而在室内场景中检测出打火机的火苗。</p>
+<p>​        首先对火焰视频分割及关键帧提取，接着对火焰图像进行预处理，获取潜在的火苗区域，得到潜在火苗区域时，需要分析与火苗相关的特征，其中涉及到火苗图像的静态特征，这时需要选取合适的表示火苗颜色的模型，然后对火焰进行特征提取，为了在检测火苗时有很好的效果，最后运用多特征融合方法对火焰进行识别判断。</p>
+<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image005.gif" alt="img"></p>
+<p>​        第一章为绪论。首先分析了火焰识别的研究背景以及意义。然后叙述了目前火焰识别技术的发展情况以及分类，并且介绍了近十几年来基于视觉的火灾检测各种方法，然后提出了本文的技术路线，紧接着系统地对各章节进行了阐述。</p>
+<p>​        第二章为火苗视频的帧提取。介绍了火苗视频与图像的关系及帧提取算法。</p>
+<p>​        第三章为火焰图像预处理。从RGB空间转到HSV空间进行阈值滤波，得到潜在的火苗区域。</p>
+<p>​        第四章为火焰图像的特征提取。这一章主要阐述了火焰的静态特征，结果证明，使用本文提取的静态特征能够初步的反映出火焰的特性。</p>
+<p>​        最后为结论。对本文所做的研究进行了总结，同时对文中提出的方法存在的不足进行了讨论，指出了下一步的研究方向和学习内容。</p>
+<p><strong>第2章</strong> <strong>火苗视频的帧提取</strong></p>
+<h2 id="2-1-火苗视频的结构"><a href="#2-1-火苗视频的结构" class="headerlink" title="2.1 火苗视频的结构"></a>2.1 火苗视频的结构</h2><p>​        火苗视频其实就是由一张张火苗图像构成，当这些火焰图像按照一定的顺序和速度进行循环播放的时候，人眼由于视觉暂留的作用，人视察到这些火焰图像就会不断连续，进而这些火苗图像就组合成了火焰视频。也正是因为这样，火焰视频通常与静态火焰图像有很多共同的特征，因此本文作为初学者，也是通过对火苗静态特性的检测来完成算法的设计。</p>
+<h2 id="2-2-火苗视频的帧提取"><a href="#2-2-火苗视频的帧提取" class="headerlink" title="2.2 火苗视频的帧提取"></a>2.2 火苗视频的帧提取</h2><p>​        首先介绍一下帧的定义，帧就是单幅影像画面,它是视频画面中的最小单位。一张静止的画面就是一帧图像，连续不断的帧动起来就形成了视频画面。一般我们说的帧数目，指的是在单位时间内传输出的图片数，换言之图片处理工具单位时间能够刷新的次数，通常用FPS表示。</p>
+<p>​         由前述内容可知，图像是视频的最基本单位，所以，火苗视频的单张图像是我们研究的关键。</p>
+<p>​         利用MATLAB R2020a中readframe方法来读取帧，使用 readFrame 方法读取所有帧，一次读取一帧，并显示这些帧。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">while hasFrame(vidObj)</span><br><span class="line"></span><br><span class="line">frame = readFrame(vidObj);</span><br><span class="line"></span><br><span class="line">imshow(frame)</span><br><span class="line"></span><br><span class="line">pause(1/vidObj.FrameRate);</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="2-3-本章小结"><a href="#2-3-本章小结" class="headerlink" title="2.3 本章小结"></a>2.3 本章小结</h2><p>​        本章介绍了火苗视频与图像的联系，并介绍了帧的定义，通过对单张图像的处理完成对视频的处理，提出了本文采用的帧提取算法。</p>
+<p><strong>第3章</strong> <strong>火焰图像预处理</strong></p>
+<h2 id="3-1-颜色模型介绍"><a href="#3-1-颜色模型介绍" class="headerlink" title="3.1 颜色模型介绍"></a>3.1 颜色模型介绍</h2><p>​        首先是要对火苗视频的颜色特征的采集，然后进行滤波，因此选择一个合适的颜色模型至关重要。</p>
+<p>(1)RGB空间</p>
+<p>​       一张彩色图片的色彩可以用RGB空间表达，R,G,B表示这种空间三个方向的坐标轴。它的原点所代表的是黑色，距离这个原点最远的顶点所代表的是白色，所示的立方体与R,G,B这三个坐标轴的交点对应红色、绿色和蓝色三个颜色的主要部分，剩下的三个顶点对应于蓝绿、品红以及黄这三个补色。在RGB颜色模型里，它的灰度值从黑到白。</p>
+<p>​        人类能够看到色彩归功于光照反射到人眼，经过大脑产生物质对视觉细胞产生影响，触发连锁反应，这时候脑部神经元就会让大脑形成认知，识别出色彩。X，Y，Z是三种施加影响的相关参量，这三种参量与色彩模型中R，G，B的关系如下:</p>
+<p>​         x &#x3D;0.409R+0.310G+0.200B</p>
+<p>​         y &#x3D;0.177R＋0.813G+0.010B</p>
+<p>​         z&#x3D;0.00OR+0.010G+0.990B</p>
+<p>​        人对颜色的视觉感知不同于RGB颜色模型空间。这种颜色空间模型分布最不均匀，在这种模型当中，无法通过像素点的差距去描述色彩的程度。</p>
+<p>(2)HSV空间</p>
+<p>​        通常情况下，HSV空间会更受大家欢迎，它被称为画家配色模型，H代表着空间的色彩基调，而S则表达其饱和程度，V代表着明暗程度。</p>
+<p>​        HSV这种模型有两点比较特殊:明暗程度V和色彩联系不紧密，人对颜色的视觉感知与色调H和饱和度S两个分量非常符合。</p>
+<p>​        因此本文选取HSV模型进行火苗的检测识别。</p>
+<h2 id="3-2-图像阈值滤波"><a href="#3-2-图像阈值滤波" class="headerlink" title="3.2 图像阈值滤波"></a>3.2 图像阈值滤波</h2><p>​        图像阈值滤波的目的是在一幅图像中将目标物体从图像的背景中分离来，为后续的图像分析和处理提供基础。图像阈值化是要按照图像中像素点的灰度值，对图像的像素集合进行一个划分，得到的每个子集形成一个与现实物体相对应的区域，各个区域内部具有一致属性41。常用的分类特征来自原始图像的灰度、彩色特征，或者由图像的灰度、彩色特征变换得到。</p>
+<p>​        图像中像素点的值为f(x,. y)，若图像中目标物体与背景像素所具有的灰度值组成了两种不同类别的属性，从背景中提取出目标物体的一种简单的方法就是选择一个合适的阈值T将这两种具有不同灰度属性的物体分隔开。按照一定的准则在f(x,y)中找到合适的特征值T，将图像分割为两个部分，分割后的图像为g(x.y)，如式(3-1）所示。</p>
+<p>​             <img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image007.gif" alt="img">          (3-1)</p>
+<p>​        式(3-1）中像素点的灰度值f(x, y)大于阈值T属于一个类别，像素点的灰度值f(x, y)小于等于阈值T属于另一个类别。若阈值T是对于整幅图像来说的那么式(3-1）的处理过程就是全局阈值处理;若阈值T在处理图像的过程中是个可变的值，那么这个处理过程就是局部阈值处理。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">filter_hsv = (original_hsv(:,:,1))&gt;0.16;</span><br><span class="line"></span><br><span class="line">filter_hsv = filter_hsv.*(original_hsv(:,:,2))&gt;0.5;</span><br><span class="line"></span><br><span class="line">filter_hsv = filter_hsv.*(original_hsv(:,:,2))&lt;0.6;</span><br><span class="line"></span><br><span class="line">filter_hsv = filter_hsv.*(original_hsv(:,:,3))&gt;0.97;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>​          如下是本文在HSV颜色模型下对图像进行阈值滤波。</p>
+<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image009.gif" alt="img">      <img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image011.gif" alt="img">     <img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image013.gif" alt="img"></p>
+<p>（a）室内场景打火机火苗图像（b）HSV颜色模型下图像  （c)滤波后图像</p>
+<p>​          由图可以看出在该场景下的火苗图像，HSV颜色模型分割得到二值图像可以较好的将火苗单独的分割出来。</p>
+<h2 id="3-3-本章小结"><a href="#3-3-本章小结" class="headerlink" title="3.3 本章小结"></a>3.3 本章小结</h2><p>​          本章首先介绍了两种颜色模型，其次介绍了阈值滤波分割图像，并得到了较好的效果。</p>
+<p><strong>第4章 火焰图像的特征提取</strong></p>
+<h2 id="4-1静态特征介绍"><a href="#4-1静态特征介绍" class="headerlink" title="4.1静态特征介绍"></a>4.1静态特征介绍</h2><p>​        长宽比用物体的长（a）与其宽（b）之比来刻画，反应物体的长宽关系：</p>
+<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image015.gif" alt="img"></p>
+<p>​        从图像区域每个像元的二维坐标中比较得到相隔最远的两个点的距离确定为火焰区域的长，定为外接最小矩形的长，长轴斜率遍历边界中的每一个像元算出截距，得到取最大截距 两个边界点，算出这两点到长轴的距离之和定为火焰区域的宽。</p>
+<p>​        圆形度用来刻画边界的复杂程度，例如，比较相同面积的圆形和星形，星形等图形要比圆形的周长大的多2。因此，提出圆形度C来表示物体的形状复杂程度:</p>
+<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image017.gif" alt="img"></p>
+<p>​         式中，L为区域周长，A为区域面积。分析表明，当图像区域为圆时，C有最小值2T。其他任何形状的图像区域，R&gt;4T。且形状越复杂，C值越大。</p>
+<h2 id="4-2静态特征的提取和比较"><a href="#4-2静态特征的提取和比较" class="headerlink" title="4.2静态特征的提取和比较"></a>4.2静态特征的提取和比较</h2><p>​         利用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[B,L] = bwboundaries(hsv_dilate,&#x27;noholes&#x27;)</span><br></pre></td></tr></table></figure>
+
+<p>找出所有不包括孔洞的连通域。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tempRatio = range(boundary(:,1))/range(boundary(:,2));</span><br></pre></td></tr></table></figure>
+
+<p>计算出目前区域的长宽比</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">if tempRatio &lt; ratio*(1-bias) || tempRatio &gt; ratio*(1+bias)</span><br></pre></td></tr></table></figure>
+
+<p>和之前测量的样本的标准长宽比进行对比，bias是偏移的百分比，目前是25%</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">selected = (L == iii);</span><br><span class="line"></span><br><span class="line">selected = ~selected;</span><br><span class="line"></span><br><span class="line">filter_hsv=filter_hsv.*selected;</span><br></pre></td></tr></table></figure>
+
+<p>如果在范围内，也就是不符合要求，则更新filter_hsv这个mask。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stats = regionprops(&#x27;table&#x27;,B&#123;iii&#125;,&#x27;Area&#x27;,&#x27;Perimeter&#x27;);</span><br></pre></td></tr></table></figure>
+
+<p>  统计第iii个连通域的面积和周长</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Ck = 4*pi*sum(stats.Area)/(sum(stats.Perimeter)).^2;</span><br></pre></td></tr></table></figure>
+
+<p>CK_Threshold是之前测量的样本的值，如果目前的值比测量值大，则不符合要求，同样更新Mask</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">if Ck &gt; Ck_Threshod</span><br><span class="line"></span><br><span class="line">selected = (L == iii);</span><br><span class="line"></span><br><span class="line">selected = ~selected;</span><br><span class="line"></span><br><span class="line">filter_hsv=filter_hsv.*selected;</span><br></pre></td></tr></table></figure>
+
+<p>Bwboundaries函数可以计算图像中区域的边界，并在图像上叠加边界。</p>
+<p>boundary返回一个表示包围点 (x,y) 的单个相容二维边界的点索引向量，此代码中意即返回边界的长和宽以便计算长宽比。</p>
+<p>Regionprops函数用来度量图像区域属性的函数.常用来统计被标记的区域的面积分布，显示区域总数。返回值STATS 是一个长度为 max(L(:))的结构数组,结构数组的相应域定义了每一个区域相应属性下的度量。此代码中意即返回第iii个连通域的面积和周长。</p>
+<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image019.gif" alt="img">        <img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image021.gif" alt="img"></p>
+<p>（a）经过长宽比更新后的图像      （b）经过圆形度更新后的图像</p>
+<p>​        从结果可以看出在该场景下的火苗图像，经过长宽比和圆形度两个静态特征更新后，火苗图像可以较好地分割出来。当然这也是在较为稳定的室内环境且较为固定的打火机火苗状态下所识别的，主要在于对图像处理知识的学习。</p>
+<h2 id="4-3-本章小结"><a href="#4-3-本章小结" class="headerlink" title="4.3 本章小结"></a>4.3 本章小结</h2><p>​        本章首先介绍了两种静态特征，长宽比和圆形度，其次介绍了本代码对于两种静态特征的利用和识别，处理图像，从结果看出得到了较好的效果。</p>
+<p><strong>结 论</strong></p>
+<p>​       基于视觉的火苗检测是目前一个重要研究方向，本文针对室内场景下的打火机火苗，主要研究了基于图像的火苗检测算法。针对火苗的特性，本文提出了合理的识别火苗的方法，首先对视频提取帧，然后通过HSV颜色模型下阈值分割获取火苗的潜在区域，接下来对潜在火苗区域进行静态特征分析判别是否存在火苗。</p>
+<p>​       具体总结如下:</p>
+<p>​       (1)研究了火苗的颜色特性，通过阈值分割方式得到与火苗颜色相近的图像。</p>
+<p>​       (2)将对静态特性的分析用于火苗检测的中，将火苗图像识别出来。</p>
+<p>​       由于只是对于颜色、长宽比、圆形度三个特征进行检测识别，因此在其他环境中误差会较大，所以算法仍有很大的改进，比如除了静态特征以为，应该再加上对动态特征的识别，火焰燃烧毕竟是一个动态过程，研究文献发现，可以采用帧间差分的方法，帧间差分法是一种通过对视频帧或者图像序列中相邻两帧作差分运算[38]来获得运动目标轮廓的方法。这种方法的优点是算法的实现比较简单，时间复杂度较低，并且可以适应于各种变化环境，但是提取目标对象比较粗糙，不能得到目标的完整的区域信息。我又了解到一个新的颜色模型，YCbCr颜色模型，YCbCr是DVD、摄影系统、数字电视等一些视频类的产品中，经常采用的种的色彩编码方案。YCbCr是YUV颜色模型经过缩放和偏移的一种翻版，可以看成是YUV颜色模型的一个子集。YCbCr中的Y分量指的是颜色空间中的亮度信息，Cb分量指的是颜色空间中蓝色分量与参考值之间的差，Cr指的是颜色空间中的红色分量与参考值之间的差。在今后的进一步研究中，可以比较一下不同颜色模型的效果进行取优。也了解到利用支持向量机等方法进行识别分类，对于图像处理的学习仍任重道远。</p>
+<p><strong>参考文献</strong></p>
+<p>[1] 陈涛，袁宏永，范维澄.火灾探测技术研究的展望[J].火灾科学,2001,10(02):108-112</p>
+<p>[2] 刘海生，张鑫磊，宋丽霞．基于统计数据的全国火灾形势综合评价与预测[J].中国安全科学学报, 2011(06):54-59</p>
+<p>[3] 刘培勋.基于视频监控的全天候火灾检测系统[D].长春:吉林大学,2011,24-31</p>
+<p>[4] 葛勇.基于视频的火灾检测方法研究及实现[D].长沙:湖南大学,2009,13:21                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               </p>
+<p>[5] 及林.基于图像特征提取的火灾检测[D].大连:大连理工大学,2013,23-37</p>
+<p>[6] 钟取发.动态环境下早期烟雾、火苗的视频分级检测研究[D].杭州:浙江理工大学,2010</p>
+<p>[7] 刘骏跃，陈明.多传感器信息融合火灾预报技术研究[J].工矿自动化, 2003(05): 14-16</p>
+<p>[8] 晏均，周群彪，谢晓阳.基于无线传感器网络的室内火灾报警系统[J].中国民航飞行学院学报,2009(02): 45-48</p>
+<p>[9] 李明轩，卢国建，胡忠日，等.点式感温火灾探测器动作时间预测方法的应用[J].消防技术与产品信息,2015(09): 3-5</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">RickyLove</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://rickylove67.github.io/2023/01/03/%E7%81%AB%E8%8B%97%E6%A3%80%E6%B5%8B%EF%BC%88%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%A7%86%E8%A7%89%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%A4%A7%E6%8A%A5%E5%91%8A%EF%BC%89/">http://rickylove67.github.io/2023/01/03/%E7%81%AB%E8%8B%97%E6%A3%80%E6%B5%8B%EF%BC%88%E6%9C%BA%E5%99%A8%E4%BA%BA%E8%A7%86%E8%A7%89%E4%B8%8E%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86%E5%A4%A7%E6%8A%A5%E5%91%8A%EF%BC%89/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">RickyLove</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/01/03/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%85%A5%E9%97%A8%E6%8A%A5%E5%91%8A/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="">
+                        
+                        <span class="card-title"></span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-03
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            RickyLove
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/03/github%E7%A8%B3%E5%AE%9A%E7%99%BB%E5%BD%95%E8%A7%A3%E5%86%B3%EF%BC%88%E5%88%86%E4%BA%AB%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/8.jpg" class="responsive-img" alt="github稳定登录解决（分享）">
+                        
+                        <span class="card-title">github稳定登录解决（分享）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            RickyLove
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2019-2023</span>
+            
+            <a href="/about" target="_blank">RickyLove</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/RickyLove67" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:839351467@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+<!-- 
+
+ -->
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=839351467" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 839351467" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+<!-- 
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+ -->
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
