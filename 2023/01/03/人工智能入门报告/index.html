@@ -490,7 +490,7 @@
 <p><strong>单元&#x2F;神经元：</strong></p>
 <p>​        作为神经网络架构三个部分中最不重要的部分，神经元是包含权重和偏置项的函数，等待数据传递给它们。接收数据后，它们执行一些计算，然后使用激活函数将数据限制在一个范围内（多数情况下）。</p>
 <p>​        一端接收数据，另一端输出修改后的数据。数据首先进入盒子中，将权重与数据相乘，再向相乘的数据添加偏置项。这是一个单元，也可以被认为是一个函数。该函数与下面这个直线方程类似：</p>
-<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image003.png" alt="img"></p>
+<p><img src="/../images/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%85%A5%E9%97%A8%E6%8A%A5%E5%91%8A/clip_image003.png" alt="img"></p>
 <p><strong>权重&#x2F;参数&#x2F;连接 (weights&#x2F;parameters&#x2F;connection)：</strong></p>
 <p>​        作为神经网络最重要的部分，这些（和偏置项）是用神经网络解决问题时必须学习的数值。</p>
 <p><strong>偏置项 (bias)</strong></p>
@@ -517,7 +517,7 @@
 <p>​        但是经过观察，可以发现，对于只有输入层与输出层的感知机模型， ∑ i &#x3D; 1 2 ω i x i − θ \sum\limits^2_{i&#x3D;1}ω_ix_i−θ i&#x3D;1∑2ωixi−θ是线性的，其只能对线性数据进行划分，对于异或模型，其实无法准确划分的。</p>
 <p>​        但如果是两层网络（这里的两层指的是隐层与输出层，因为只有这两层中的节点是有激活函数的），在隐层有两个节点，那么此时就可以得到两条线性函数，再在输出节点汇总之后，将会得到由两条直线围成的一个面，这时就可以成功的将异或问题解决。</p>
 <p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image008.png" alt="这里写图片描述"></p>
-<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image009.png" alt="这里写图片描述"></p>
+<p><img src="/../images/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%85%A5%E9%97%A8%E6%8A%A5%E5%91%8A/clip_image009.png" alt="这里写图片描述"></p>
 <h3 id="二、决策模型"><a href="#二、决策模型" class="headerlink" title="二、决策模型"></a>二、决策模型</h3><p>​        单个的感知器构成了一个简单的决策模型，已经可以拿来用了。真实世界中，实际的决策模型则要复杂得多，是由多个感知器组成的多层网络。</p>
 <p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image010.png" alt="img"></p>
 <p>​        上图中，底层感知器接收外部输入，做出判断以后，再发出信号，作为上层感知器的输入，直至得到最后的结果。（注意：感知器的输出依然只有一个，但是可以发送给多个目标。）</p>
@@ -544,7 +544,7 @@
 <p>​        车牌照片就是输入，车牌号码就是输出，照片的清晰度可以设置权重（w）。然后，找到一种或多种<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/07/principle_of_similar_image_search.html">图像比对算法</a>，作为感知器。算法的得到结果是一个概率，比如75%的概率可以确定是数字1。这就需要设置一个阈值（b）（比如85%的可信度），低于这个门槛结果就无效。</p>
 <p>​        一组已经识别好的车牌照片，作为训练集数据，输入模型。不断调整各种参数，直至找到正确率最高的参数组合。以后拿到新照片，就可以直接给出结果了。</p>
 <h1 id="2-经典模型的实验过程"><a href="#2-经典模型的实验过程" class="headerlink" title="2.经典模型的实验过程"></a>2.经典模型的实验过程</h1><h2 id="2-1水果识别（AI分类）"><a href="#2-1水果识别（AI分类）" class="headerlink" title="2.1水果识别（AI分类）"></a>2.1水果识别（AI分类）</h2><h3 id="2-1-1实验目的"><a href="#2-1-1实验目的" class="headerlink" title="2.1.1实验目的"></a>2.1.1实验目的</h3><p>​        朴素贝叶斯（分类器）是一种生成模型，它会基于训练样本对每个可能的类别建模。之所以叫朴素贝叶斯，是因为采用了属性条件独立性假设，就是假设每个属性独立地对分类结果产生影响。即有下面的公式：</p>
-<p> <img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image013.png" alt="img"></p>
+<p> <img src="/../images/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD%E5%85%A5%E9%97%A8%E6%8A%A5%E5%91%8A/clip_image013.png" alt="img"></p>
 <p>​        后面连乘的地方要注意的是，如果有一项概率值为0会影响后面估计，所以我们对未出现的属性概率设置一个很小的值，并不为0,这就是拉普拉斯修正（Laplacian correction）。</p>
 <p> <img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image014.png" alt="img"></p>
 <p>​         拉普拉斯修正实际上假设了属性值和类别的均匀分布，在学习过程中额外引入了先验识。</p>
@@ -621,11 +621,9 @@
 <p>​                           概率P&#x3D;0.8                                                    概率P&#x3D;0.1</p>
 <p>2.改变交叉概率</p>
 <p>​       令pc分别为0.5、0.9，再与开始的0.7形成对照实验，结果如下：</p>
-<p>  <img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image038.jpg" alt="img"><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image040.jpg" alt="img"></p>
 <p>​                         概率P&#x3D;0.8                                              概率P&#x3D;0.9</p>
 <p>3.改变变异概率</p>
 <p>​       令pm&#x3D;0.01、0.006，再与开始的0.008形成对照实验，结果如下：</p>
-<p>  <img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image041.jpg" alt="img"><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image043.jpg" alt="img"></p>
 <p>​                       概率P&#x3D;0.9                                             概率P&#x3D;0.7</p>
 <h3 id="2-2-3实验结果分析"><a href="#2-2-3实验结果分析" class="headerlink" title="2.2.3实验结果分析"></a>2.2.3实验结果分析</h3><p>​        通过上述几十次实验，很容易得到结论：对于遗传算法而言，无论参数如何设置都无法避免陷入局部最优解。</p>
 <p>​        通过改变种群规模的实验组，不难看出种群大小过于低会严重影响成功率，但是过大的种群成功率也没有显著提高。</p>
@@ -668,7 +666,6 @@
 <p>​         建立的决策树分别如下所示：</p>
 <p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image047.jpg" alt="img"></p>
 <p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image049.jpg" alt="img"></p>
-<p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image051.jpg" alt="img"></p>
 <p><img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image053.jpg" alt="img"></p>
 <h3 id="2-4-3-实验结果分析"><a href="#2-4-3-实验结果分析" class="headerlink" title="2.4.3 实验结果分析"></a>2.4.3 实验结果分析</h3><p>​       参考七个属性时：测试集准确率为89~91%</p>
 <p>​       参考九个属性时：测试集准确率为95~97%</p>
