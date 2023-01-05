@@ -4,14 +4,9 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博客搭建教程, RickyLove">
-    <meta name="description" content="博客搭建过程（采用hexo框架+部署到github）
-1.前期准备
-1.1 注意事项
-hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，一个是各个theme下的
-
-1.2 下载并安装node.js
-官网">
+    <meta name="keywords" content="Robomaster轮腿式平衡步兵设计, RickyLove">
+    <meta name="description" content="​        计划设计一个轮腿式平衡步兵，腿部采用五连杆设计，那么一个主要的任务就是确定腿部杆长参数。
+​        腿部五连杆机构具有两个自由度，由机架的两个关节电机提供主动力。但在本设计中，轮腿式双足机器人的腿部仅在 y 方向运">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +18,7 @@ hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，�
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>博客搭建教程 | RickyLove</title>
+    <title>Robomaster轮腿式平衡步兵设计 | RickyLove</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -338,12 +333,12 @@ hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">博客搭建教程</h1>
+                    <h1 class="description center-align post-title">Robomaster轮腿式平衡步兵设计</h1>
                 </div>
             </div>
         </div>
@@ -379,7 +374,7 @@ hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-03
+                    2023-01-05
                 </div>
                 
 
@@ -400,160 +395,33 @@ hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>博客搭建过程（采用hexo框架+部署到github）</p>
-<p>1.前期准备</p>
-<p>1.1 注意事项</p>
-<pre><code>hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，一个是各个theme下的
-</code></pre>
-<p>1.2 下载并安装node.js</p>
-<pre><code>官网下载：https://nodejs.org/en/
+                <p>​        计划设计一个轮腿式平衡步兵，腿部采用五连杆设计，那么一个主要的任务就是确定腿部杆长参数。</p>
+<p>​        腿部五连杆机构具有两个自由度，由机架的两个关节电机提供主动力。但在本设计中，轮腿式双足机器人的腿部仅在 y 方向运动，而限制其 x 方向运动，因此两个关节电机的旋转角度同步，使五连杆机构的自由度降低至一个，故只取五连杆机构的一半进行分析， 如下图所示，图中各物理参数见下表。</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E8%85%BF%E9%83%A8%E8%BF%9E%E6%9D%86%E6%9C%BA%E6%9E%84%E7%AE%80%E5%8C%96%E6%A8%A1%E5%9E%8B.png" alt="腿部连杆机构简化模型"></p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E8%85%BF%E9%83%A8%E8%BF%9E%E6%9D%86%E5%90%84%E7%89%A9%E7%90%86%E5%8F%82%E6%95%B0.png" alt="腿部连杆各物理参数"></p>
+<p>​          列出各杆件的几何关系如下：</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E5%BC%8F1.png" alt="式1"></p>
+<p>​         整理得到高度 y 与关节转角关系如下：</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E5%BC%8F2.png" alt="式2"></p>
+<p>​         下图分别是机体处于最低和最高高度时的状态</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E6%9C%80%E4%BD%8E%E9%AB%98%E5%BA%A6%E6%97%B6%E7%9A%84%E8%85%BF%E9%83%A8%E6%A8%A1%E5%9E%8B.png" alt="最低高度时的腿部模型"></p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E6%9C%80%E9%AB%98%E9%AB%98%E5%BA%A6%E6%97%B6%E7%9A%84%E8%85%BF%E9%83%A8%E6%A8%A1%E5%9E%8B.png" alt="最高高度时的腿部模型"></p>
+<p>​        由最低高度图可得到如下几何关系式</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E5%BC%8F3.png" alt="式3"></p>
+<p>​        由最高高度图可得到如下几何关系式</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E5%BC%8F4.png" alt="式4"></p>
+<p>​        联立可得到如下几何关系式：</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E5%BC%8F5.png" alt="式5"></p>
+<p>​        可知，l2 l3 和代尔塔y均可由l1、αmax和αmin表示，故选定机架半长l1为定值，将αmax和αmin视作自变量，其约束条件如下:</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E5%BC%8F6.png" alt="式6"></p>
+<p>​        根据所设计机器人参数指标，得到如下目标约束：</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E5%BC%8F7.png" alt="式7"></p>
+<p>​        为了使关节电机角度α与机体高度y尽可能呈线性关系，要求两者的相关系数：</p>
+<p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/%E5%BC%8F8.png" alt="式8"></p>
+<p>​        用 Matlab 编写算法筛选出满足式各项约束条件的自变量值，并求出对应的杆长及ymax,ymin,\delta y</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">clc</span><br><span class="line">clear</span><br><span class="line">R=zeros(89,89);%相关系数矩阵</span><br><span class="line">H=zeros(89,89);%最高高度矩阵</span><br><span class="line">L=zeros(89,89);%最低高度矩阵</span><br><span class="line">Y=zeros(89,89);%高度差矩阵</span><br><span class="line">B=zeros(89,89);%l2杆长矩阵</span><br><span class="line">C=zeros(89,89);%l3杆长矩阵</span><br><span class="line">for Anglemin=91:179 %最小角度限制在90-180之间</span><br><span class="line">    for Anglemax=271:359 %最大角度限制在270-360之间</span><br><span class="line">        if(Anglemax&gt;=(Anglemin+180)) %最大角度&lt;最小角度+180</span><br><span class="line">            break;</span><br><span class="line">        end</span><br><span class="line">        Radmin=2*pi*Anglemin/360;</span><br><span class="line">        Radmax=2*pi*Anglemax/360;</span><br><span class="line">        Angle=[Anglemin:1:Anglemax];</span><br><span class="line">        Rad=2*pi*Angle/360;</span><br><span class="line">        a=0.1; %设定l1杆的长度</span><br><span class="line">        b=(a/cos(Radmax)+a/cos(Radmin))/2;</span><br><span class="line">        c=(a/cos(Radmax)-a/cos(Radmin))/2;</span><br><span class="line">        y=sqrt(c^2-(a-b*cos(Rad)).^2)-b*sin(Rad);%角度与高度的关系式</span><br><span class="line">        R((Anglemin-90),(Anglemax-270))=min(min(corrcoef(Angle,y)));%获取角度与高度之间的相关系数</span><br><span class="line">        L((Anglemin-90),(Anglemax-270))=-a*tan(Radmin);%获取最低高度</span><br><span class="line">        H((Anglemin-90),(Anglemax-270))=-a*tan(Radmax);%获取最高高度</span><br><span class="line">        Y((Anglemin-90),(Anglemax-270))=a*(tan(Radmin)-tan(Radmax));%获取高度差</span><br><span class="line">        B((Anglemin-90),(Anglemax-270))=b;%获取l2杆长</span><br><span class="line">        C((Anglemin-90),(Anglemax-270))=c;%获取l3杆长</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">AngleSet=zeros(2,89);%存放筛选后角度值的矩阵</span><br><span class="line">k=0;</span><br><span class="line">for i=1:89</span><br><span class="line">    for j=1:89</span><br><span class="line">        if(R(i,j)&gt;=0.98)%以相关系数作为筛选条件</span><br><span class="line">            if((0.4&lt;=H(i,j))&amp;&amp;(H(i,j)&lt;=0.5))%以最高高度作为筛选条件</span><br><span class="line">                  if((0.1&lt;=L(i,j))&amp;&amp;(L(i,j)&lt;=0.2))%以最低高度作为筛选条件</span><br><span class="line">                       if((0.3&lt;=Y(i,j))&amp;&amp;(Y(i,j)&lt;=0.4))%以高度差作为筛选条件</span><br><span class="line">                        k=k+1;</span><br><span class="line">                        AngleSet(1,k)=i+90;%筛选后的最小角度存入矩阵</span><br><span class="line">                        AngleSet(2,k)=j+270;%筛选后的最大角度存入矩阵</span><br><span class="line">                       end</span><br><span class="line">                  end</span><br><span class="line">            end</span><br><span class="line">        end</span><br><span class="line">    end</span><br><span class="line">end</span><br><span class="line">Final=zeros(8,k);%存放筛选后的角度，以及与之对应的相关数据</span><br><span class="line">for p=1:k</span><br><span class="line">    Final(1,p)=AngleSet(1,p);%最小角度</span><br><span class="line">    Final(2,p)=AngleSet(2,p);%最大角度</span><br><span class="line">    Final(3,p)=R((Final(1,p)-90),(Final(2,p)-270));%相关系数</span><br><span class="line">    Final(4,p)=H((Final(1,p)-90),(Final(2,p)-270));%最高高度</span><br><span class="line">    Final(5,p)=L((Final(1,p)-90),(Final(2,p)-270));%最低高度</span><br><span class="line">    Final(6,p)=Y((Final(1,p)-90),(Final(2,p)-270));%高度差</span><br><span class="line">    Final(7,p)=B((Final(1,p)-90),(Final(2,p)-270));%l2杆长</span><br><span class="line">    Final(8,p)=C((Final(1,p)-90),(Final(2,p)-270));%l3杆长</span><br><span class="line">end</span><br><span class="line">%将所有矩阵输出到excel文件中</span><br><span class="line">xlswrite(&#x27;E:\设计尺寸总表&#x27;,R,&#x27;相关系数&#x27;);</span><br><span class="line">xlswrite(&#x27;E:\设计尺寸总表&#x27;,H,&#x27;最高高度&#x27;);</span><br><span class="line">xlswrite(&#x27;E:\设计尺寸总表&#x27;,L,&#x27;最低高度&#x27;);</span><br><span class="line">xlswrite(&#x27;E:\设计尺寸总表&#x27;,Y,&#x27;高度差&#x27;);</span><br><span class="line">xlswrite(&#x27;E:\设计尺寸总表&#x27;,B,&#x27;l2杆长&#x27;);</span><br><span class="line">xlswrite(&#x27;E:\设计尺寸总表&#x27;,C,&#x27;l3杆长&#x27;);</span><br><span class="line">xlswrite(&#x27;E:\设计尺寸总表&#x27;,Final,&#x27;筛选后数据&#x27;);</span><br></pre></td></tr></table></figure>
 
-安装与使用：https://blog.csdn.net/qq_43557395/article/details/124325563
-
-安装后验证：node -v
-</code></pre>
-<p>1.3 下载并安装git</p>
-<pre><code>官网下载:  https://git-scm.com/download/win
-
-安装与使用：https://www.cnblogs.com/itweb666/articles/15670680.html
-
-安装后验证：git -v
-</code></pre>
-<p>1.4 命令行安装cnpm</p>
-<pre><code>命令：npm install -g cnpm --registry==https://registry.npm.taobao.org
-
-安装后验证：cnpm -v
-</code></pre>
-<p>1.5 命令行安装hexo</p>
-<pre><code>命令：cnpm install -g hexo-cli
-
-安装后验证：hexo  -v
-</code></pre>
-<p>2.配置github</p>
-<p>2.1 在github上创建仓库</p>
-<p>创建：</p>
-<pre><code>新建一个名为你的用户名.github.io的仓库
-
-比如说，如果你的github用户名是test，那么你就新建test.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 http://test.github.io 了，是不是很方便？由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。
-</code></pre>
-<p>注意：</p>
-<pre><code>仓库名字必须是：username.github.io，其中username是你的用户名；
-</code></pre>
-<p>创建成功后，默认会在你这个仓库里生成一些示例页面，以后你的网站所有代码都是放在这个仓库里啦。</p>
-<ol start="3">
-<li>配置SSH免密登录</li>
-</ol>
-<p>为什么要配置这个呢？因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。</p>
-<p>操作步骤：</p>
-<p>第一步：在C:\Users\blog文件夹下右键打开Git Bash Here输入命令：ssh-keygen -t rsa -C github邮件地址   生成.ssh秘钥，输入后连敲三次回车，出现下图情况代表成功</p>
-<p>第二步：最终生成了一个新的 C:\Users\.ssh文件夹，打开这个文件夹，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容</p>
-<p>第三步：打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key，把复制的内容粘贴进去，title随便填，保存即可，我们的公钥就添加成功了</p>
-<p>第四步：检测是否设置成功：</p>
-<p>输入命令：  $ ssh -T <a href="mailto:&#103;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;">&#103;&#x69;&#116;&#x40;&#103;&#x69;&#116;&#x68;&#117;&#98;&#x2e;&#x63;&#x6f;&#x6d;</a> # 注意邮箱地址不用改</p>
-<p>如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，然后会看到：</p>
-<p>Hi liuxianan! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-<p>看到这个信息说明SSH已配置成功！</p>
-<p>第五步：此时你还需要配置：</p>
-<p>$ git config –global user.name “RickyLove67”&#x2F;&#x2F; 你的github用户名，非昵称$ git config –global user.email  “<a href="mailto:&#120;&#x78;&#120;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#120;&#x78;&#120;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a>“&#x2F;&#x2F; 填写你的github注册邮箱</p>
-<p>4.使用 hexo 搭建博客</p>
-<p>4.1 初始化</p>
-<p>第一步：在电脑的某个地方新建一个名为hexo的文件夹（名字可以随便取），比如我的是C:\Users\blog</p>
-<p>第二步：在C:\Users\blog文件夹下右键打开 Git Bash Here，输入hexo init 初始化</p>
-<p>第三步：执行以下命令之后，hexo就会在public文件夹生成相关html文件，这些文件将来都是要提交到github去的</p>
-<p>第四步：hexo s 是开启本地预览服务，打开浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可看到内容，很多人会碰到浏览器一直在转圈但是就是加载不出来的问题，一般情况下是因为端口占用的缘故，因为4000这个端口太常见了，解决端口冲突问题请参考这篇文章<a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/windows-finds-port-usage.html">https://www.runoob.com/w3cnote/windows-finds-port-usage.html</a></p>
-<pre><code>到这里初始化就完成了
-</code></pre>
-<p>4.2 将博客部署到 github 个人主页上</p>
-<p>第一步：在C:\Users\blog目录下安装 hexo-deployer-git 插件</p>
-<pre><code>安装命令： npm install hexo-deployer-git --save  
-
-必须安装，否则执行hexo d 的话会报如下错误：
-</code></pre>
-<p>第二步：编辑C:\Users\blog目录下的 _config.yml 文件, 在文件末尾添加如下内容：</p>
-<pre><code>注意：其中 repo 中的内容即为 github 个人主页链接地址，具体看下图：
-</code></pre>
-<p>![img](file:&#x2F;&#x2F;&#x2F;C:\Users\RickyLove\Documents\Tencent Files\839351467\Image\C2C{UGLTDK$0(4YVV[@1XBWLTX.png)</p>
-<p>第三步：在C:\Users\blog目录下, 输入命令：hexo d 将本地 blog 推送到 github仓库, 也可能需要输入 username &amp; pwd。</p>
-<pre><code>推送成功后, 在浏览器中输入对应域名, 即可访问 https://yoursname.github.io
-</code></pre>
-<ol start="5">
-<li>更换主题</li>
-</ol>
-<p>5.1 寻找主题</p>
-<pre><code>hexo官网：https://hexo.io/themes/，可在里面下载主题，点击主题名即可跳转到github上，也可以直接在github上搜索主题
-
-在这里我使用github上一个大佬的主题blinkfox/hexo-theme-matery
-
-链接：https://github.com/blinkfox/hexo-theme-matery    
-</code></pre>
-<p>5.2 下载主题</p>
-<p>第一步：Git Bash Here中先cd到C:\Users\blog目录</p>
-<p>第二步：再输入命令 $ git clone 主题http链接  themes&#x2F;主题名称</p>
-<p>注意：</p>
-<pre><code>C:\Users\blog目录下的 theme 文件夹下存放的就是博客的主题，主题是否下载成功可到该目录下查看：
-</code></pre>
-<p>5.3 使用主题</p>
-<pre><code>打开C:\Users\blog目录下的_config.yml文件，在里面找到theme: landscape改为theme: blinkfox   （blinkfox为我们要使用的主题名）,然后重新执行hexo g来重新生成。
-
-如果出现一些莫名其妙的问题，可以先执行hexo clean来清理一下public的内容，然后再执行hexo g 和 hexo s 重新生成和发布。
-
-再次在浏览器中输入对应域名, 即可发现主题已更换
-</code></pre>
-<p>5.4 修改主题内容</p>
-<p>在这里我使用的是blinkfox主题，后期相关修改参考这个主题文档</p>
-<p>文档链接：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
-<pre><code>注意：一些非md文件可以把他们放到source文件夹下，这里的所有文件都会原样复制（除了md文件）到public目录的
-
-修改文件，记得修改后的文件需要关闭后，再在blog根目录右键打开Git Bash Here，输入两个命令：hexo g 重新生成，hexo s 开启本地预览服务,等修改的符合要求了，再输入 hexo d 推送到github仓库即可
-
-这样就可以输入网址查看更改后的内容了
-</code></pre>
-<p>文档上没有提及的修改：</p>
-<pre><code>返回按钮样式修改：在主题下面的 blinkfox\layout\_partial 文件夹中的 back-top.esj 文件中修改
-</code></pre>
-<p>特别注意：</p>
-<pre><code>修改生成的默认页面信息，要到主题下面的_config.yml文件里面去改，而不是根目录下的_config.yml文件
-
-
-要把根目录下的_config.yml文件中的这些信息替换成自己的和设置中文
-</code></pre>
-<p>6.利用Typora软件来写博客</p>
-<p>6.1 Typora介绍</p>
-<pre><code>Typora–一款简单高效的Markdown编辑器，保存后直接为md格式，Markdown中点击导入就可以。
-
-Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式，其目标是实现易读易写，说人话就是删减版的HTML语言
-
-Markdown教程：https://www.runoob.com/markdown/md-tutorial.html
-</code></pre>
-<p>6.2 安装Typora</p>
-<p>官网：<a target="_blank" rel="noopener" href="https://www.typora.io/#windows">https://www.typora.io/#windows</a></p>
-<p>6.3  写博客的步骤</p>
-<p>第一步：创建.md文件</p>
-<pre><code>方法1：定位到我们的hexo根目录，Git Bash Here 中执行命令：  hexo new &#39;my-first-blog&#39;                hexo会帮我们在C:\Users\blog\source\_posts 下生成相关.md文件，用这个命令的好处是帮我们自动生成了时间。（但是本人尝试后未能成功发布，鉴于本人也是初学者，还未找到原因）
-
-方法2：当然你也可以直接自己打开E:\xpzsData\hexocode\source\_posts 目录新建.md文件
-</code></pre>
-<p>第二步：编写并保存</p>
-<p>我们只需要用typora打开这个文件就可以开始写博客了，写完后Ctrl+S 保存关闭即可</p>
-<p>第三步：清理然后再生成一下，生成后推送到远程仓库即可，hexo根目录下右键Git Bash Here 中依次输入如下命令：</p>
-<pre><code>hexo clean
-
-hexo g
-
-hexo d
-</code></pre>
-<p>6.4  Typora快捷键</p>
-<p>Typora中只要记住一些基本的快捷键就可以了，所有功能软件里面都有对应按钮，这点不用慌。</p>
-<p>快捷键文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39533052/article/details/111115263">https://blog.csdn.net/weixin_39533052/article/details/111115263</a></p>
-<p>6.5  注意：所使用的主题的文章 Front-matter 语法</p>
-<p>依据使用的不同主题，一些文章功能所使用的语法可能不一样，例如写博客时给文章添加标签的语法等等，这些都要看所使用的主题的文档，例如我们这里使用的是 blinkfox 主题，打开主题文档，往下翻找到”  文章 Front-matter 介绍 “即可。</p>
-<p>blinkfox主题文档：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md#%E6%96%87%E7%AB%A0-front-matter-%E4%BB%8B%E7%BB%8D">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md#%E6%96%87%E7%AB%A0-front-matter-%E4%BB%8B%E7%BB%8D</a></p>
-<p>参考文献：</p>
-<p>1：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
-<p>2：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
-<p>3：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a> </p>
-<p>4：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43557395/article/details/124325563">https://blog.csdn.net/qq_43557395/article/details/124325563</a></p>
-<p>5：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/itweb666/articles/15670680.html">https://www.cnblogs.com/itweb666/articles/15670680.html</a></p>
+<p>​           从中挑选出符合条件的最终参数，所对应的l2 &#x3D; 0.16, l3 &#x3D; 0.32 , delta y &#x3D; 0.35。</p>
 
                 
             </div>
@@ -580,7 +448,7 @@ hexo d
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://rickylove67.github.io/2023/01/03/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">http://rickylove67.github.io/2023/01/03/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</a>
+                    <a href="http://rickylove67.github.io/2023/01/05/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/">http://rickylove67.github.io/2023/01/05/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -661,54 +529,18 @@ hexo d
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/03/%E5%82%AC%E7%9C%A0%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%A5%BD%E5%A5%87%E5%90%91%EF%BC%89/">
+                <a href="/2023/01/05/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="催眠学习（好奇向）">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Robomaster轮腿式平衡步兵设计">
                         
-                        <span class="card-title">催眠学习（好奇向）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-03
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            RickyLove
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/01/02/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Robomaster轮腿式平衡步兵设计</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -719,7 +551,45 @@ hexo d
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-05
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            RickyLove
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/04/%E5%87%8F%E9%87%8D%E8%AE%BE%E8%AE%A1%E5%BF%83%E5%BE%97/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/19.jpg" class="responsive-img" alt="减重设计心得">
+                        
+                        <span class="card-title">减重设计心得</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-04
                             </span>
                         <span class="publish-author">
                             
