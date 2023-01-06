@@ -4,14 +4,11 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="博客搭建教程, RickyLove">
-    <meta name="description" content="博客搭建过程（采用hexo框架+部署到github）
-1.前期准备
-1.1 注意事项
-hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，一个是各个theme下的
-
-1.2 下载并安装node.js
-官网">
+    <meta name="keywords" content="ANSYS学习记录, RickyLove">
+    <meta name="description" content="ANSYS学习记录基于教程https://www.bilibili.com/video/BV1u4411B7Fo?p=3
+核心：学软件是找到自己要的功能 不是每个功能都关注
+学习过程问题记录：
+打开下部的message查看警告。关于报错：p">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -23,7 +20,7 @@ hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，�
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>博客搭建教程 | RickyLove</title>
+    <title>ANSYS学习记录 | RickyLove</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -338,12 +335,12 @@ hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，�
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/23.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/15.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">博客搭建教程</h1>
+                    <h1 class="description center-align post-title">ANSYS学习记录</h1>
                 </div>
             </div>
         </div>
@@ -379,7 +376,7 @@ hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，�
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-03
+                    2023-01-06
                 </div>
                 
 
@@ -400,160 +397,198 @@ hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，�
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>博客搭建过程（采用hexo框架+部署到github）</p>
-<p>1.前期准备</p>
-<p>1.1 注意事项</p>
-<pre><code>hexo有2种_config.yml文件，一个是根目录下的全局的_config.yml，一个是各个theme下的
-</code></pre>
-<p>1.2 下载并安装node.js</p>
-<pre><code>官网下载：https://nodejs.org/en/
-
-安装与使用：https://blog.csdn.net/qq_43557395/article/details/124325563
-
-安装后验证：node -v
-</code></pre>
-<p>1.3 下载并安装git</p>
-<pre><code>官网下载:  https://git-scm.com/download/win
-
-安装与使用：https://www.cnblogs.com/itweb666/articles/15670680.html
-
-安装后验证：git -v
-</code></pre>
-<p>1.4 命令行安装cnpm</p>
-<pre><code>命令：npm install -g cnpm --registry==https://registry.npm.taobao.org
-
-安装后验证：cnpm -v
-</code></pre>
-<p>1.5 命令行安装hexo</p>
-<pre><code>命令：cnpm install -g hexo-cli
-
-安装后验证：hexo  -v
-</code></pre>
-<p>2.配置github</p>
-<p>2.1 在github上创建仓库</p>
-<p>创建：</p>
-<pre><code>新建一个名为你的用户名.github.io的仓库
-
-比如说，如果你的github用户名是test，那么你就新建test.github.io的仓库（必须是你的用户名，其它名称无效），将来你的网站访问地址就是 http://test.github.io 了，是不是很方便？由此可见，每一个github账户最多只能创建一个这样可以直接使用域名访问的仓库。
-</code></pre>
-<p>注意：</p>
-<pre><code>仓库名字必须是：username.github.io，其中username是你的用户名；
-</code></pre>
-<p>创建成功后，默认会在你这个仓库里生成一些示例页面，以后你的网站所有代码都是放在这个仓库里啦。</p>
-<ol start="3">
-<li>配置SSH免密登录</li>
+                <h1 id="ANSYS学习记录"><a href="#ANSYS学习记录" class="headerlink" title="ANSYS学习记录"></a>ANSYS学习记录</h1><h2 id="基于教程"><a href="#基于教程" class="headerlink" title="基于教程"></a>基于教程</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1u4411B7Fo?p=3">https://www.bilibili.com/video/BV1u4411B7Fo?p=3</a></p>
+<p>核心：学软件是找到自己要的功能 不是每个功能都关注</p>
+<h2 id="学习过程问题记录："><a href="#学习过程问题记录：" class="headerlink" title="学习过程问题记录："></a>学习过程问题记录：</h2><ol>
+<li>打开下部的message查看警告。关于报错：pivot转轴；matrix矩阵，iterative积分，unconverged不收敛。</li>
+<li>An internal solution magnitude limit was exceeded. Please check your  Environment for inappropriate load values or insufficient supports.  Please see the Troubleshooting section of the Help System for more  information.某个方向上的载荷超过强度。</li>
+<li>ansys界面混乱：view-reset。</li>
+<li>ansys不支持撤销命令，所以随时保存。</li>
+<li>At least one body has been found to have only 1 element in at least 2 directions along with reduced integration. This situation can lead to invalid results. consider changing to full integration element control or meshing with more elements.网格密度不够。可以使用goto-Bodies With One Element Through the Thickness定位。</li>
+<li>结果中的等效应变和等效压力和等效变形是不同的，可以通过左上角unit量纲来判断。</li>
+<li>参考资料[：](<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/34709ff7182e453610661ed9ad51f01dc381577d.html?rec_flag=default&word=ansys">https://wenku.baidu.com/view/34709ff7182e453610661ed9ad51f01dc381577d.html?rec_flag=default&amp;word=ansys</a> troubleshooting section&amp;fr&#x3D;pc_oldview_relate-1001_1-4-wk_rec_doc2-1001_1-57270722192e45361066f505-34709ff7182e453610661ed9ad51f01dc381577d)这个整理的很好，但是38块钱，我没买哈哈哈。[<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/34709ff7182e453610661ed9ad51f01dc381577d.html?rec_flag=default&word=ansys%20troubleshooting%20section&fr=pc_oldview_relate-1001_1-4-wk_rec_doc2-1001_1-57270722192e45361066f505-34709ff7182e453610661ed9ad51f01dc381577d%5D">https://wenku.baidu.com/view/34709ff7182e453610661ed9ad51f01dc381577d.html?rec_flag=default&amp;word=ansys%20troubleshooting%20section&amp;fr=pc_oldview_relate-1001_1-4-wk_rec_doc2-1001_1-57270722192e45361066f505-34709ff7182e453610661ed9ad51f01dc381577d]</a>(<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/34709ff7182e453610661ed9ad51f01dc381577d.html?rec_flag=default&word=ansys">https://wenku.baidu.com/view/34709ff7182e453610661ed9ad51f01dc381577d.html?rec_flag=default&amp;word=ansys</a> troubleshooting section&amp;fr&#x3D;pc_oldview_relate-1001_1-4-wk_rec_doc2-1001_1-57270722192e45361066f505-34709ff7182e453610661ed9ad51f01dc381577d)</li>
 </ol>
-<p>为什么要配置这个呢？因为你提交代码肯定要拥有你的github权限才可以，但是直接使用用户名和密码太不安全了，所以我们使用ssh key来解决本地和服务器的连接问题。</p>
-<p>操作步骤：</p>
-<p>第一步：在C:\Users\blog文件夹下右键打开Git Bash Here输入命令：ssh-keygen -t rsa -C github邮件地址   生成.ssh秘钥，输入后连敲三次回车，出现下图情况代表成功</p>
-<p>第二步：最终生成了一个新的 C:\Users\.ssh文件夹，打开这个文件夹，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容</p>
-<p>第三步：打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key，把复制的内容粘贴进去，title随便填，保存即可，我们的公钥就添加成功了</p>
-<p>第四步：检测是否设置成功：</p>
-<p>输入命令：  $ ssh -T <a href="mailto:&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#x69;&#x74;&#x40;&#x67;&#x69;&#116;&#104;&#x75;&#98;&#x2e;&#99;&#x6f;&#x6d;</a> # 注意邮箱地址不用改</p>
-<p>如果提示Are you sure you want to continue connecting (yes&#x2F;no)?，输入yes，然后会看到：</p>
-<p>Hi liuxianan! You’ve successfully authenticated, but GitHub does not provide shell access.</p>
-<p>看到这个信息说明SSH已配置成功！</p>
-<p>第五步：此时你还需要配置：</p>
-<p>$ git config –global user.name “RickyLove67”&#x2F;&#x2F; 你的github用户名，非昵称$ git config –global user.email  “<a href="mailto:&#x78;&#x78;&#120;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x78;&#x78;&#120;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;</a>“&#x2F;&#x2F; 填写你的github注册邮箱</p>
-<p>4.使用 hexo 搭建博客</p>
-<p>4.1 初始化</p>
-<p>第一步：在电脑的某个地方新建一个名为hexo的文件夹（名字可以随便取），比如我的是C:\Users\blog</p>
-<p>第二步：在C:\Users\blog文件夹下右键打开 Git Bash Here，输入hexo init 初始化</p>
-<p>第三步：执行以下命令之后，hexo就会在public文件夹生成相关html文件，这些文件将来都是要提交到github去的</p>
-<p>第四步：hexo s 是开启本地预览服务，打开浏览器访问 <a target="_blank" rel="noopener" href="http://localhost:4000/">http://localhost:4000</a> 即可看到内容，很多人会碰到浏览器一直在转圈但是就是加载不出来的问题，一般情况下是因为端口占用的缘故，因为4000这个端口太常见了，解决端口冲突问题请参考这篇文章<a target="_blank" rel="noopener" href="https://www.runoob.com/w3cnote/windows-finds-port-usage.html">https://www.runoob.com/w3cnote/windows-finds-port-usage.html</a></p>
-<pre><code>到这里初始化就完成了
-</code></pre>
-<p>4.2 将博客部署到 github 个人主页上</p>
-<p>第一步：在C:\Users\blog目录下安装 hexo-deployer-git 插件</p>
-<pre><code>安装命令： npm install hexo-deployer-git --save  
-
-必须安装，否则执行hexo d 的话会报如下错误：
-</code></pre>
-<p>第二步：编辑C:\Users\blog目录下的 _config.yml 文件, 在文件末尾添加如下内容：</p>
-<pre><code>注意：其中 repo 中的内容即为 github 个人主页链接地址，具体看下图：
-</code></pre>
-<p>![img](file:&#x2F;&#x2F;&#x2F;C:\Users\RickyLove\Documents\Tencent Files\839351467\Image\C2C{UGLTDK$0(4YVV[@1XBWLTX.png)</p>
-<p>第三步：在C:\Users\blog目录下, 输入命令：hexo d 将本地 blog 推送到 github仓库, 也可能需要输入 username &amp; pwd。</p>
-<pre><code>推送成功后, 在浏览器中输入对应域名, 即可访问 https://yoursname.github.io
-</code></pre>
-<ol start="5">
-<li>更换主题</li>
+<hr>
+<h2 id="Day-1："><a href="#Day-1：" class="headerlink" title="Day 1："></a>Day 1：</h2><p>关于软件选择：我们主要使用Workbench部分 在sw等软件中完成建模而后直接分析 ANSYS自带的建模使用感受一般</p>
+<p>关于版本选择：从12.0后界面基本不变了，所以可以使用临近的3-5个版本均可 例如：我现在最新的版本是19.2 那么推荐使用的是19&#x2F;18&#x2F;17三个系列 16&#x2F;15两个系列也可以 再低版本不推荐</p>
+<p>关于知识储备：材料力学基础（应力剪力等）+较好的英文基础（主要是掌握机械设计的专业术语 要不看不懂操作选项QAQ）</p>
+<p>大体制作流程：三维建模→模型转化→条件附加→网格划分→求解及后处理</p>
+<p>界面分配：主界面+DM设计界面+材料附加界面+分析界面（主要！！）</p>
+<p>文件类型：sw导出的step&#x2F;x_t&#x2F;igs均可</p>
+<p>中英操作对照：</p>
+<p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/3f2e4e4ee518964bcf847cca.html">https://wenku.baidu.com/view/3f2e4e4ee518964bcf847cca.html</a></p>
+<p>我们能用到的基本都在这了</p>
+<h3 id="关于WORKBENCH入门基础："><a href="#关于WORKBENCH入门基础：" class="headerlink" title="关于WORKBENCH入门基础："></a>关于WORKBENCH入门基础：</h3><ol>
+<li>完整流程：</li>
 </ol>
-<p>5.1 寻找主题</p>
-<pre><code>hexo官网：https://hexo.io/themes/，可在里面下载主题，点击主题名即可跳转到github上，也可以直接在github上搜索主题
-
-在这里我使用github上一个大佬的主题blinkfox/hexo-theme-matery
-
-链接：https://github.com/blinkfox/hexo-theme-matery    
-</code></pre>
-<p>5.2 下载主题</p>
-<p>第一步：Git Bash Here中先cd到C:\Users\blog目录</p>
-<p>第二步：再输入命令 $ git clone 主题http链接  themes&#x2F;主题名称</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598233471908-760e7ea1-7a55-4fb7-bb78-c2124466c1e9.jpeg" alt="img"></p>
+<ol>
+<li>界面说明：</li>
+</ol>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598233481526-8fe3e9d6-019c-4530-a202-5193529c3576.jpeg" alt="img"></p>
+<ol>
+<li>分析流程：<img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598233856150-df30253e-65f1-4fd7-b988-dae00072957c.jpeg" alt="img"></li>
+</ol>
+<p>大体来说即选择分析类型-&gt;工程数据（材料等，其中材料默认为结构钢）-&gt;几何模型（导入时类型选择所有，sw可以使用stl和-x）-&gt;分析模型（网格，约束，载荷（大小和方向））-&gt;解算和结果</p>
+<h3 id="实例1："><a href="#实例1：" class="headerlink" title="实例1："></a>实例1：</h3><p>分析实例:带孔矩形板</p>
+<p>问题描述:带孔矩形板一侧面均布110000N载荷，另一侧固定，利用WORKBENCH求解矩形板的应力、应变和位移，并对分析结果进行解释。</p>
+<p>材料:Structure Steel</p>
+<p>屈服强度:250MPa</p>
+<p>注意：generate mesh→force（方向默认法线）→fixed support（apply）→1:1显示          </p>
+<p>通过改变比例尺上的屈服强度来达到不同的颜色显示效果（后处理）</p>
+<p>扩展知识：失稳起皱-在弯曲或挤压过程中部分区域过厚堆积引起皱褶</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1597932409206-6eead850-a2cd-4b49-afcc-f7b1c6e3a0d5.png" alt="image.png"></p>
+<h3 id="实例2：最大应力值位置及数值的统计-应力产生规律"><a href="#实例2：最大应力值位置及数值的统计-应力产生规律" class="headerlink" title="实例2：最大应力值位置及数值的统计 应力产生规律"></a>实例2：最大应力值位置及数值的统计 应力产生规律</h3><p>分析实例:L型支架</p>
+<p>问题描述:L形支架上端面固定，同时在下端面施加900N弯曲载荷，分别使用10mm、3mm和1mm网格求解模型，对比应力结果。</p>
+<p>材料:Structure Steel</p>
 <p>注意：</p>
-<pre><code>C:\Users\blog目录下的 theme 文件夹下存放的就是博客的主题，主题是否下载成功可到该目录下查看：
-</code></pre>
-<p>5.3 使用主题</p>
-<pre><code>打开C:\Users\blog目录下的_config.yml文件，在里面找到theme: landscape改为theme: blinkfox   （blinkfox为我们要使用的主题名）,然后重新执行hexo g来重新生成。
-
-如果出现一些莫名其妙的问题，可以先执行hexo clean来清理一下public的内容，然后再执行hexo g 和 hexo s 重新生成和发布。
-
-再次在浏览器中输入对应域名, 即可发现主题已更换
-</code></pre>
-<p>5.4 修改主题内容</p>
-<p>在这里我使用的是blinkfox主题，后期相关修改参考这个主题文档</p>
-<p>文档链接：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
-<pre><code>注意：一些非md文件可以把他们放到source文件夹下，这里的所有文件都会原样复制（除了md文件）到public目录的
-
-修改文件，记得修改后的文件需要关闭后，再在blog根目录右键打开Git Bash Here，输入两个命令：hexo g 重新生成，hexo s 开启本地预览服务,等修改的符合要求了，再输入 hexo d 推送到github仓库即可
-
-这样就可以输入网址查看更改后的内容了
-</code></pre>
-<p>文档上没有提及的修改：</p>
-<pre><code>返回按钮样式修改：在主题下面的 blinkfox\layout\_partial 文件夹中的 back-top.esj 文件中修改
-</code></pre>
-<p>特别注意：</p>
-<pre><code>修改生成的默认页面信息，要到主题下面的_config.yml文件里面去改，而不是根目录下的_config.yml文件
-
-
-要把根目录下的_config.yml文件中的这些信息替换成自己的和设置中文
-</code></pre>
-<p>6.利用Typora软件来写博客</p>
-<p>6.1 Typora介绍</p>
-<pre><code>Typora–一款简单高效的Markdown编辑器，保存后直接为md格式，Markdown中点击导入就可以。
-
-Markdown是一种可以使用普通文本编辑器编写的标记语言，通过简单的标记语法，它可以使普通文本内容具有一定的格式，其目标是实现易读易写，说人话就是删减版的HTML语言
-
-Markdown教程：https://www.runoob.com/markdown/md-tutorial.html
-</code></pre>
-<p>6.2 安装Typora</p>
-<p>官网：<a target="_blank" rel="noopener" href="https://www.typora.io/#windows">https://www.typora.io/#windows</a></p>
-<p>6.3  写博客的步骤</p>
-<p>第一步：创建.md文件</p>
-<pre><code>方法1：定位到我们的hexo根目录，Git Bash Here 中执行命令：  hexo new &#39;my-first-blog&#39;                hexo会帮我们在C:\Users\blog\source\_posts 下生成相关.md文件，用这个命令的好处是帮我们自动生成了时间。（但是本人尝试后未能成功发布，鉴于本人也是初学者，还未找到原因）
-
-方法2：当然你也可以直接自己打开E:\xpzsData\hexocode\source\_posts 目录新建.md文件
-</code></pre>
-<p>第二步：编写并保存</p>
-<p>我们只需要用typora打开这个文件就可以开始写博客了，写完后Ctrl+S 保存关闭即可</p>
-<p>第三步：清理然后再生成一下，生成后推送到远程仓库即可，hexo根目录下右键Git Bash Here 中依次输入如下命令：</p>
-<pre><code>hexo clean
-
-hexo g
-
-hexo d
-</code></pre>
-<p>6.4  Typora快捷键</p>
-<p>Typora中只要记住一些基本的快捷键就可以了，所有功能软件里面都有对应按钮，这点不用慌。</p>
-<p>快捷键文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_39533052/article/details/111115263">https://blog.csdn.net/weixin_39533052/article/details/111115263</a></p>
-<p>6.5  注意：所使用的主题的文章 Front-matter 语法</p>
-<p>依据使用的不同主题，一些文章功能所使用的语法可能不一样，例如写博客时给文章添加标签的语法等等，这些都要看所使用的主题的文档，例如我们这里使用的是 blinkfox 主题，打开主题文档，往下翻找到”  文章 Front-matter 介绍 “即可。</p>
-<p>blinkfox主题文档：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md#%E6%96%87%E7%AB%A0-front-matter-%E4%BB%8B%E7%BB%8D">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md#%E6%96%87%E7%AB%A0-front-matter-%E4%BB%8B%E7%BB%8D</a></p>
-<p>参考文献：</p>
-<p>1：<a target="_blank" rel="noopener" href="https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md">https://github.com/blinkfox/hexo-theme-matery/blob/develop/README_CN.md</a></p>
-<p>2：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html">https://www.cnblogs.com/liuxianan/p/build-blog-website-by-hexo-github.html</a></p>
-<p>3：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/f72aaad7b852">https://www.jianshu.com/p/f72aaad7b852</a> </p>
-<p>4：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_43557395/article/details/124325563">https://blog.csdn.net/qq_43557395/article/details/124325563</a></p>
-<p>5：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/itweb666/articles/15670680.html">https://www.cnblogs.com/itweb666/articles/15670680.html</a></p>
+<p>mesh→sizing→element size（工具栏units切换单位）</p>
+<p> force选线是平行于线， 选面为面的法线。工具栏选maximum查看最大值点</p>
+<p>改变网格大小时要新建工程算例不要在原分析上直接改，复制后修改网格大小即可 </p>
+<p>工程数量较多时要进行Archive打包操作  因为ANSYS默认只保存例程不保存数据</p>
+<p>扩展知识：</p>
+<p>网格无关性检查-一直减小网格直到计算结果收敛在允许的范围内即认为结果此时与网格大小无关</p>
+<p>​                  应力奇异-按照网格无关性检查不一定能找到结果进入收敛半径的网格大小，即应力趋于无穷，此时为应力奇异，常出现在不连续处如不加圆角的直角边，详情见</p>
+<p><a target="_blank" rel="noopener" href="http://blog.sina.com.cn/s/blog_13b525e650102yejg.html">http://blog.sina.com.cn/s/blog_13b525e650102yejg.html</a></p>
+<h2 id="Day-2"><a href="#Day-2" class="headerlink" title="Day 2"></a>Day 2</h2><h3 id="实例2：圆角L型支架的应力结果"><a href="#实例2：圆角L型支架的应力结果" class="headerlink" title="实例2：圆角L型支架的应力结果"></a>实例2：圆角L型支架的应力结果</h3><p>分析实例:L型支架</p>
+<p>材 料:Structure Steel</p>
+<p>问题描述:修改第二课的L形支架模型，如图位置增加半径2.54mm的圆角，上端面固定，同时在下端面施加900N弯曲载荷，分别使用10mm、3mm、1mm和0.5mm网格求解模型，对比应力结果。</p>
+<p>注意：geometry→dm（design model）添加圆角→每一步都generate</p>
+<p>​          数据连接而非复制的好处是能够只修改源例程而实现全部数据替换</p>
+<p>​          分析结果中的geometry从all body改成其他点线面以实现部分结果预览 应用于已经对仿真结果有初步预估 （如对应力最大值点初步判断）可减少处理时间</p>
+<p>​          菜单最上面有一栏元素过滤器 可选择线&#x2F;面&#x2F;体</p>
+<p>​          在达到幅值的5%左右波动就可以认为满足了网格无关性判定 此时红色危险区域应覆盖两层基本单元</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1597977703519-33c63033-1c8f-42e6-b312-677d5ced58ae.png" alt="image.png"></p>
+<p>1mm结果 不可</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1597977723573-160d86be-881b-46bc-a28f-f387f4435ca6.png" alt="image.png"></p>
+<p>0.5mm结果 可</p>
+<h3 id="实例4-应力奇异及位移结果对比"><a href="#实例4-应力奇异及位移结果对比" class="headerlink" title="实例4 应力奇异及位移结果对比"></a>实例4 应力奇异及位移结果对比</h3><p>应力集中：</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%BA%94%E5%8A%9B%E9%9B%86%E4%B8%AD/1953796?fr=aladdin">https://baike.baidu.com/item/%E5%BA%94%E5%8A%9B%E9%9B%86%E4%B8%AD/1953796?fr=aladdin</a></p>
+<p>是一种很正常的现象</p>
+<p>应力奇异是应力集中的极端现象 是一种数学算法问题 反推可得有限元分析是不适用于尖角&#x2F;折弯处的红色≠应力奇异&#x2F;应力集中 只要产生应力梯度就是应力集中</p>
+<p>99%的物体都有应力奇异点 但是99%都在无危险处</p>
+<p>当出现应力奇异点 我们不是考虑更改网格把他算准 而是考虑更改结构来避免 如给L型角件加圆角</p>
+<p>更改网格大小不会影响位移的分析（误差在1%左右）因此优先对比位移结果</p>
+<h2 id="Day-3"><a href="#Day-3" class="headerlink" title="Day 3"></a>Day 3</h2><h3 id="课程5：初步了解单元基本知识"><a href="#课程5：初步了解单元基本知识" class="headerlink" title="课程5：初步了解单元基本知识"></a>课程5：初步了解单元基本知识</h3><p>改变局部网格密度：mesh→sizing→geometry→选择面→generate mesh  </p>
+<p>此时大概率出现网格变为长方体 解决方法：mesh→sizing→选择包围该面的所有边界线→generate mesh</p>
+<p>讲网格从六面体改为四面体:mesh→method→automatic改为tetrahedrons</p>
+<p>使网格更加平滑：sizing→transition→slow</p>
+<p>在同一网格精度下， 四面体堆积比六面体堆积更密集， 因而计算结果更接近最大值</p>
+<p>因此目前的普遍观点是（仍在争论）四面体计算精度更高， 可以保留更多的物理细节，六面体划分更简单 其原理就是对物理特征进行了自动简化——这种简化是有益的，使其计算速度更高（囿于目前的电脑性能），所以这二者互补，这里列举一些老师的话帮助大家理解：</p>
+<p>1.六面体网格划分有助于学习者提升对网格划分的理解;</p>
+<p>2.随着模型的复杂程度越来越高，四面体网格在划分效率上优势会非常明显</p>
+<h3 id="课程6：装配体分析预备（重点！！）"><a href="#课程6：装配体分析预备（重点！！）" class="headerlink" title="课程6：装配体分析预备（重点！！）"></a>课程6：装配体分析预备（重点！！）</h3><p>分析实例:支架</p>
+<p>问题描述:支架两端通过地脚螺栓固定在地面上，零件凹孔面承受5000N的法向推力，求解支架的应力和位移。</p>
+<p>材料:Structure Steel</p>
+<p>当出现应力奇异等其他难以区分的分析结果时，可以考虑分析位移结果，选择directional可选择x&#x2F;y&#x2F;z其中一个方向，添加位移结果后，可选择加入0位移线ISOlines，来验证是否有不合理位移，此时要将坐标轴随便选一点归零</p>
+<h2 id="Day-4"><a href="#Day-4" class="headerlink" title="Day 4"></a>Day 4</h2><h3 id="课程7：装配体分析基本思路"><a href="#课程7：装配体分析基本思路" class="headerlink" title="课程7：装配体分析基本思路"></a>课程7：装配体分析基本思路</h3><p>导入装配体后在connection中自动显示了接触部分 选择body view来预览接触物体  explode爆炸视图后可以自行添加connection</p>
+<p>接触类型选择：</p>
+<p>Bonded（绑定）:默认接触形式，不允许面或线间有相对滑动或分离，可以将此区域看做被连接在一起。</p>
+<p>Frictionless（无摩擦）:这种接触形式代表单边接触，即如果出现分离则法向压力为零，同时假设摩擦系数为0。</p>
+<p>Rough（粗糙）:这种接触方式和无摩擦类似。但表现为完全的摩擦接触，即没有相对滑动，法向可分离，切向不滑动。</p>
+<p>Frictional(有摩擦）:这种情况下，在发生相对滑动前，两接触面可以通过接触区域传递一定数量的剪应力。法向可分离，切向摩擦滑动。</p>
+<p>No Separation（不分离）:这种接触形式和绑定类似，只适用于面。不允许接触区域的面分离，但是沿着接触面可以有小范围滑动，即法向不分离，切向可以有小位移。</p>
+<p>做出结果后 要多次改变网格大小 没有结果崩溃即证明所做分析可靠。</p>
+<h3 id="课程8：刚体平移和弱弹簧"><a href="#课程8：刚体平移和弱弹簧" class="headerlink" title="课程8：刚体平移和弱弹簧"></a>课程8：刚体平移和弱弹簧</h3><p>fixed support 三维全约束 displacement可按x&#x2F;y&#x2F;z分类约束 默认为free输入0约束</p>
+<p>show undeformed model 可以显示平移前的位置</p>
+<p>电脑计算存在这样的问题：给一块板左右分别加100N的力，我们知道这是平衡的，但是当两边网格不一致时，100N会被读取为两个力如100.2和99.8这其中就产生了微小力，这是一种误差，不可避免。</p>
+<p>利用弱弹簧功能可以抵消微小力 analysis settings→Weak Springs→on </p>
+<p>检测微小力的大小：solution→probe→force reaction→boundary condition→weak springs</p>
+<h2 id="Day-5"><a href="#Day-5" class="headerlink" title="Day 5:"></a>Day 5:</h2><h3 id="课程-9：接触基础和接触设置"><a href="#课程-9：接触基础和接触设置" class="headerlink" title="课程 9：接触基础和接触设置"></a>课程 9：接触基础和接触设置</h3><p>计算错误最常见的情况就是接触错误和整体模型不平均</p>
+<p>在分析结果之前一定要看message里面的警告和错误</p>
+<p>设置Frictional接触类型（摩擦系数0.2）可以解决非常规平移的问题</p>
+<p>Lesson 10：分析结果解读</p>
+<p>分析实例:L型支架</p>
+<p>材料:Structure Steel</p>
+<p>问题描述:如下图所示，支架红色端面施加箭头方向900N载荷，横杆两端面固定，假设横杆和支架为零配合状态，考察结构的应力和位移</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598239822793-a52c8983-65a6-4c71-a171-d195aacde04d.png" alt="image.png"></p>
+<p>分析结果与实验结果的比较：</p>
+<p>1.最大变形：实验结果有指定测量位置和方向而分析结果只有全变形</p>
+<p>2.测量结果：应力值不是直接获取，测试时必须给定弹性模量，才有对比性</p>
+<h2 id="Day-6"><a href="#Day-6" class="headerlink" title="Day 6"></a>Day 6</h2><h3 id="Lesson-11"><a href="#Lesson-11" class="headerlink" title="Lesson 11"></a>Lesson 11</h3><p> 圣维南原理和模型简化</p>
+<p>圣维南原理：</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9C%A3%E7%BB%B4%E5%8D%97%E5%8E%9F%E7%90%86/2590043?fr=aladdin">https://baike.baidu.com/item/%E5%9C%A3%E7%BB%B4%E5%8D%97%E5%8E%9F%E7%90%86/2590043?fr=aladdin</a></p>
+<p>我个人的理解是：有两点A和B， 当A和B距离足够远，B处只要合力和合力矩不变，那么B处有多少个力&#x2F;方向如何（即力的复杂程度）都不会对A处的应力情况产生影响。 </p>
+<p>1.关键是找到这个“足够远”的距离是多少</p>
+<p>2.在工程实例中广泛满足，但是没有理论验证</p>
+<p>3.应力分析符合，位移分析不符合</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598353518348-01ab56af-4ae6-4975-95e5-6c88241194dd.png" alt="image.png"></p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598353529732-2a08092f-4bb3-4945-8c2e-e3b0748bb66e.png" alt="image.png"></p>
+<p>将方杆</p>
+<p>对L型支架的力通过圣维南转换成固定约束发现位移量有很大变化，这是因为图一显示的位移是方杆和L型支架共同的位移量</p>
+<p>四大强度理论：</p>
+<p><a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%9B%9B%E5%A4%A7%E5%BC%BA%E5%BA%A6%E7%90%86%E8%AE%BA/15709673?fr=aladdin">https://baike.baidu.com/item/%E5%9B%9B%E5%A4%A7%E5%BC%BA%E5%BA%A6%E7%90%86%E8%AE%BA/15709673?fr=aladdin</a></p>
+<p>1、最大<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%8B%89%E5%BA%94%E5%8A%9B">拉应力</a></p>
+<p>理论 </p>
+<p>2、最大伸长线应变理论     →→脆性断裂</p>
+<p>3、最大切应力理论         </p>
+<p>4、形状改变比能理论         →→塑性屈服（我们要用的）</p>
+<p>强度条件:<br>$$<br>Von Mises应力&#x3D;[(σ1-σ2)^2+(σ2-σ3)^2+(σ3-σ1)^2]≤[σ]<br>$$<br>式中σ1，σ2，σ3,为三大主应力，σ为屈服应力</p>
+<p>安全系数：Tools→Stress Tool→Safety Factor     计算：屈服值&#x2F;应力值</p>
+<p>安全系数应大于1 我们要求应该在1-2左右</p>
+<h3 id="Lesson-12-有限元分析学习方法介绍"><a href="#Lesson-12-有限元分析学习方法介绍" class="headerlink" title="Lesson 12 有限元分析学习方法介绍"></a>Lesson 12 有限元分析学习方法介绍</h3><p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598355464840-6e930853-9a3d-4d82-b5bd-23645390ff95.png" alt="image.png"></p>
+<h2 id="Day-7"><a href="#Day-7" class="headerlink" title="Day 7"></a>Day 7</h2><h3 id="Lesson-13-对称问题预备：水杯"><a href="#Lesson-13-对称问题预备：水杯" class="headerlink" title="Lesson 13 对称问题预备：水杯"></a>Lesson 13 对称问题预备：水杯</h3><p>分析实例:水杯</p>
+<p>材料:ABS</p>
+<p>问题描述:杯子放置在桌子上，内部装满水，求杯子底部径向扩张量。</p>
+<p>材料修改：Material→Assighment→New Material或者返回Project界面进入Engineering Data</p>
+<p>新建材料：命名→Density（密度）→Isotropic Elasticity（各向同性下的弹力属性）→Young’s Modulus（杨氏模量）→Poisson’s Ratio（泊松比）→返回Model界面File里Refresh</p>
+<p>水压设置：Hydrostatic Pressure→Fluid Density（液体密度）→Magnitude（重力加速度）→Direction选择一个面，他的法线为所选方向→Location定义一个零压强面</p>
+<p>需要杯子和桌子两个物体 ，限定为有摩擦接触，千万不可用全约束把杯底固定死</p>
+<p>这里就要用到之前讲的局部网格细分，四面体网格划分，缓慢过渡，软弹簧等操作</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598411441096-69b7b4a2-8674-4ccf-823d-42f30c721b3b.png" alt="image.png"></p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598411457516-ecc68e07-469e-44b9-9a0d-4aad2e6f4d72.png" alt="image.png"></p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598411490111-c01c9fa7-0d66-4fca-b0d9-f924a30db00b.png" alt="image.png"></p>
+<p>上图分别为有摩擦接触&#x2F;弱弹簧&#x2F;全约束</p>
+<h3 id="Lesson-14-对称"><a href="#Lesson-14-对称" class="headerlink" title="Lesson 14 对称"></a>Lesson 14 对称</h3><p>对于水杯这种中心对称&#x2F;轴对称物体我们可以只分析他的一部分（以1&#x2F;4为例）</p>
+<p>切除：在DM界面切掉3&#x2F;4之后Tools→Symmetry（对称，即告诉系统你这里还有镜像的另一半只是不显示不计算）→Plane→Model Type→Partial Model</p>
+<p>建立新plane：Create→New Plane→Form Face→Base Face选择切割面（plane必须与xy平面重合）</p>
+<p>plane与face的区别：plane值得广义无穷大面或坐标轴平面 face指物体上的一个小端面</p>
+<p>mesh分割：New Section Plane新建一个任意切割面</p>
+<h2 id="Day-8"><a href="#Day-8" class="headerlink" title="Day 8"></a>Day 8</h2><h3 id="Lesson-15-轴对称问题应用"><a href="#Lesson-15-轴对称问题应用" class="headerlink" title="Lesson 15 轴对称问题应用"></a>Lesson 15 轴对称问题应用</h3><p>对称问题：如果模型的几何形状及边界条件都对称于同一平面，则结构内各点的位移、应力及应变都对称于此平面，这类问题称之为对称问题。如之前所做的矩形板&#x2F;L型支架&#x2F;水杯</p>
+<p>对于水杯这种绕轴旋转而成的物体，他的每一个切面都相同，所以可以简化到一个面，称为轴对称模型</p>
+<p>因为从三维转到了二维所以要新建工程分析，不要复制之前的算例</p>
+<p>新建后点geometry右侧属性栏中把analysis从3D改成2D（view→properties勾选上即可显示属性栏）</p>
+<p>DM先把水杯切成1&#x2F;4 然后thin&#x2F;surface选中水杯截面和桌子截面两个面 FD1,thickness改为0</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598520544368-32a6ad21-d8c2-4061-b38e-83b86858e534.png" alt="image.png"></p>
+<p>所选面必须在xy平面上且y为旋转轴 </p>
+<p>转换到xy平面：create→body transformation</p>
+<p>在mesh前选择geometry→2D behavior→ axisymmetric切换到镜像问题模式</p>
+<p>分析出2D结果，转换为3D显示：</p>
+<p>①主界面→tools→options→appearance→beta options勾选上</p>
+<p>②model→symmetry→type改为2D axisymmetric</p>
+<p>③num repeat 平面复制的份数-1  Δθ每一份的角度 初始为37份10度</p>
+<p>Lesson 16对称问题 平面问题 自由度</p>
+<p>静力学要求每个物体的六个空间自由度全部被约束（如接触&#x2F;摩擦&#x2F;对称）</p>
+<p>带孔矩形板就可变为 对称→平面→边界条件→求解</p>
+<h2 id="Day-9"><a href="#Day-9" class="headerlink" title="Day 9"></a>Day 9</h2><h3 id="Lesson18-简化模型正确性"><a href="#Lesson18-简化模型正确性" class="headerlink" title="Lesson18 简化模型正确性"></a>Lesson18 简化模型正确性</h3><p>分析实例:桌面放置物体</p>
+<p>问题描述:考察桌子正中间放置一个质量为45.4kg的长方体，考察桌子的变形情况。</p>
+<p>材料:结构钢</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598630346524-a1eaec71-1510-4bbb-86d2-f9f53416f37e.png" alt="image.png"></p>
+<p>分别用两种方法判断：</p>
+<p>①想象成均布载荷用force代替</p>
+<p>②物体自重：inertial→standard earth gravity→+z direction</p>
+<p>通过probe→force reaction 对四个桌脚的支反力检测可以确保两个方法其他条件均相同</p>
+<p>求解时提示数据错误可以solution中清空数据重新求解</p>
+<p>应变结果相差超过25% 对比应力结果：</p>
+<p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598690671978-a4c17ab3-1a87-4a23-bdcd-eb6215dbee49.png" alt="image.png"></p>
+<p>对比发现桌子受压变形 ，物体给的并不是均布载荷 ，实际上均布载荷是一种理想化受力，只有很少情况出现</p>
+<p>tools→contact tool→插入pressure→求解出实际应力分布 这是对简化的重要验证</p>
+<p>结果：物体压力应等效为四个点作用而非均布载荷</p>
+<h2 id="Day-10"><a href="#Day-10" class="headerlink" title="Day 10"></a>Day 10</h2><h3 id="Lesson-19-力学计算对比"><a href="#Lesson-19-力学计算对比" class="headerlink" title="Lesson 19 力学计算对比"></a>Lesson 19 力学计算对比</h3><p><img src="/../images/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/1598692215571-29c093fb-0e08-4ea2-be74-5a345716f14f.png" alt="image.png"></p>
+<p>在DM界面把两个solid放在一起 form new part里可以把两个物体视作一个来分析</p>
+<p>这里复习材料力学中梁的有关词汇：超静定问题，转角和挠度，弯矩等</p>
+<h3 id="Lesson-20"><a href="#Lesson-20" class="headerlink" title="Lesson 20"></a>Lesson 20</h3><p>线性静态分析所涉及的材料参数：</p>
+<p>必要参数:弹性模量、泊松比（金属在0.23-0.33之间）</p>
+<p>一个特殊的材料参数:屈服强度</p>
+<p>可能需要参数:密度（惯性力）、线膨胀系数（热边界条件）</p>
+<p>添加了重力就必须添加密度&#x2F; 添加重力与不添加重力结果差10%就一定要添加重力</p>
+<p>tools→safety factor安全系数才需要填写屈服强度</p>
+<p>添加屈服强度：strength→tensile yield strength </p>
+<p>三个材料参数对线性材料小变形计算结果的影响</p>
+<p>弹性模量:应力结果不影响，变形结果影响;</p>
+<p>屈服强度:应力结果变形结果均不影响;</p>
+<p>泊松比:应力结果影响，变形结果影响，但是变化范围较小。</p>
+<p>对比实验结果和仿真结果时不要添加重力 因为在实验进行调零时已经完成重力形变 所以重力已经被忽略</p>
 
                 
             </div>
@@ -580,7 +615,7 @@ hexo d
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://rickylove67.github.io/2023/01/03/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">http://rickylove67.github.io/2023/01/03/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</a>
+                    <a href="http://rickylove67.github.io/2023/01/06/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">http://rickylove67.github.io/2023/01/06/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -661,54 +696,18 @@ hexo d
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/03/%E5%82%AC%E7%9C%A0%E5%AD%A6%E4%B9%A0%EF%BC%88%E5%A5%BD%E5%A5%87%E5%90%91%EF%BC%89/">
+                <a href="/2023/01/06/ANSYS%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/4.jpg" class="responsive-img" alt="催眠学习（好奇向）">
+                        <img src="/medias/featureimages/15.jpg" class="responsive-img" alt="ANSYS学习记录">
                         
-                        <span class="card-title">催眠学习（好奇向）</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-03
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            RickyLove
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/01/02/hello-world/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
-                        
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">ANSYS学习记录</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -719,7 +718,45 @@ hexo d
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-06
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            RickyLove
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/05/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="Robomaster轮腿式平衡步兵设计">
+                        
+                        <span class="card-title">Robomaster轮腿式平衡步兵设计</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-05
                             </span>
                         <span class="publish-author">
                             
