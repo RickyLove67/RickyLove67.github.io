@@ -4,8 +4,28 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="pid算法心得, RickyLove">
-    <meta name="description" content="​        本人是机器人工程专业，但是其实也是机械，对于pid仍在理论层面，还未深入实践，所以对于pid的理解可能有所欠缺，各位理性看待，哈哈。​        一般书上提供的计算公式中的几个名词:1.​        直接计算法和增">
+    <meta name="keywords" content="六轴机械臂概述, RickyLove">
+    <meta name="description" content="1.机械臂关节模组1.1结构组成
+
+
+机械臂关节模组
+部件供应商
+
+
+
+机械抱闸
+德国TQ
+
+
+无框力矩电机
+科尔摩根、德国TQ、泰科伺服、杭州精导
+
+
+谐波减速器
+绿的、来福、山卓等、日本Harmonic Drive 哈默纳科
+
+
+光电编">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -17,7 +37,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>pid算法心得 | RickyLove</title>
+    <title>六轴机械臂概述 | RickyLove</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -332,12 +352,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/5.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/3.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">pid算法心得</h1>
+                    <h1 class="description center-align post-title">六轴机械臂概述</h1>
                 </div>
             </div>
         </div>
@@ -373,7 +393,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2023-01-04
+                    2023-02-15
                 </div>
                 
 
@@ -394,9 +414,64 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>​        本人是机器人工程专业，但是其实也是机械，对于pid仍在理论层面，还未深入实践，所以对于pid的理解可能有所欠缺，各位理性看待，哈哈。<br>​        一般书上提供的计算公式中的几个名词:<br>1.<br>​        直接计算法和增量算法，这里的所谓增量算法就是相对于标准算法的相邻两次运算之差，得到的结果是增量，也就是说，在上一次的控制量的基础上需要增加(负值意味着减少)控制量，例如对于可控硅电机调速系统，就是可控硅的触发相位还需要提前（或迟后)的量，对于温度控制就是需要增加(或减少）加热比例，根据具体的应用适当选择采用哪一种算法，但基本的控制方法、原理是完全一样的，直接计算法得到的是当前需要的控制量,相邻两次控制量的差就是增量;<br>2.<br>​        基本偏差e(t).表示当前测量值与设定目标间的差，设定目标是被减数，结果可以是正或负，正数表示还没有达到，负数表示已经超过了设定值。这是面向比例项用的变动数据。<br>3.<br>​        累计偏差工e(t&#x3D;e(t+ e(t-1)+ e(t-2)+ …+e(1)，这是我们每一次测量到的偏差值的总和,这是代数和，考虑到他的正负符号的运算的，这是面向积分项用的一个变动数据。<br>4.<br>​        基本偏差的相对偏差e(t-e(t-1)，用本次的基本偏差减去上一次的基本偏差，用于考察当前控制的对象的趋势，作为快速反应的重要依据，这是面向微分项的一个变动数据。<br>5.<br>​        三个基本参数:Kp,Ki,Kd.这是做好一个控制器的关键常数，分别称为比例常数、积分常数和微分常数，不同的控制对象他们需要选择不同的数值，还需要经过现场调试才能获得较好的效果。<br>6.<br>​        标准的直接计算法公式:<br>$$<br>Pout (t&#x3D;Kp<em>e(t)+Ki</em>&gt;e(t)+Kd* ( e(t)一e(t-1))<br>$$<br>上一次的计算值:<br>$$<br>Pout(t-1)&#x3D;Kp <em>e(t-1)+Ki</em>&gt;e(t-1)+Kd* ( e(t-1)—e(t-2))<br>$$<br>两式相减得到增量法计算公式:<br>$$<br>Pdlt &#x3D;Kp*(e(t)-e(t-1)+Ki<em>e(t)+Kd</em>( e(t)-2*e(t-1)+e(t-2));<br>$$<br>​        这里我们对求和项的表示应该是对e(i)从1到t 全部总和，但为了打字的简便就记作&gt;e(t).</p>
-<p>三个基本参数Kp, Ki,Kd.在实际控制中的作用:<br>        比例调节作用:是按比例反应系统的偏差，系统一旦出现了偏差，比例调节立即产生调节作用用以减少偏差。比例作用大，可以加快调节，减少误差，但是过大的比例，使系统的稳定性下降，甚至造成系统的不稳定。<br>        积分调节作用:是使系统消除稳态误差，提高无差度。因为有误差，积分调节就进行，直至无差，积分调节停止，积分调节输出一常值。积分作用的强弱取决与积分时间常数Ti，Ti越小，积分作用就越强。反之Ti 大则积分作用弱，加入积分调节可使系统稳定性下降，动态响应变慢。积分作用常与另两种调节规律结合，组成PI调节器或PID调节器。<br>        微分调节作用:微分作用反映系统偏差信号的变化率，具有预见性，能预见偏差变化的趋势，因此能产生超前的控制作用，在偏差还没有形成之前，已被微分调节作用消除。因此，可以改善系统的动态性能。在微分时间选择合适情况下，可以减少超调，减少调节时间。微分作用对噪声干扰有放大作用，因此过强的加微分调节，对系统抗干扰不利。此外，微分反应的是变化率，而当输入没有变化时，微分作用输出为零。微分作用不能单独使用，需要与另外两种调节规律相结合，组成PD或PID控制器。<br>具体应用中的数值量化处理:<br>        上面只是控制算法的数学方法，似乎有点抽象，在具体的控制项目中怎样对应呢?也就是具体的量化问题。下面举一个在温度控制中的处理方法。</p>
-<p>​        对于加温的温度控制可以采用调节供电电压或在一定的时间循环周期内的供电时间比例来调节加温控制温度，一般以调节加温时间比例比较简单，也是控制上比较常用的方法。调压法控制的原理是通过调节可控硅的触发相位的相位角达到对电压的调节，这个电压是指有效电压，直观上就是对一个正弦波形的前边切掉一块，用不同的切割位置以保留剩余的面积。为了叙述方便，我们还是采用控制时间比例的办法:我们设定一个标准的加温周期，例如2分钟，我们就在这个两分钟周期内对输出进行控制，也就是说在这个2分钟内加温多少时间，全速加温就是连续整个周期(2分钟)都加温，当然停止加温就是完全不输出，根据我们的计算可以让加温时间在0-2分钟内变化，比如计算所得我们在这一个周期内应该加温1分30秒，经过两分钟以后再测量被加温物体的温度，通过计算我们应该加温1分28秒，等等等等，这里除了加温以外的时间就是不加温，等待下一个周期到来，再进行实际测量计算下一周期我们的输出量，周而复始，不断地修正我们的输出量，以达到对温度的有效控制。<br>​        PID的三个基本参数Kp、Ki、Kd，一般由试验确定，根据我们的实际工作对象去初步确定，然后在实际运行过程中进行调节，以达到相对理想的效果，为了达到比较好的控制效果，这三个参数一般不采用整数，但同时为了减轻单片机的运算量，通常采用2的整倍数放大的办法确定这些参数，在运算结果中再除以2的整倍数，因为单片机运算中可以用移位来完成，速度比较快，常用的是8倍或16倍放大，注意这三个参数采用相同的放大比例。编程的过程中自己从头到尾要清楚我的参数是经过放大了的，就不会忘记对运算结果还原。<br>参数的设定与调整<br>​        这是PID最困难的部分，编程时只设定他们的大概数值，然后通过反复的调试才能找到相对比较理想的参数值。面向不同的控制对象参数都不同，所以我们无法提供参考数值，但是我们可以根据这些参数在整个PID过程中的作用原理，来讨论我们的对策。<br>1．加温很迅速就达到目标值，但是温度过冲很大:<br>a)比例系数太大，致使在未达到设定温度前加温比例过高;b)微分系数过小，致使对对象反应不敏感;<br>2．加温经常达不到目标值，小于目标值的时间较多:<br>a)比例系数过小，加温比例不够;<br>b)积分系数过小，对恒偏差补偿不足;<br>3．基本上能够在控制目标上，但上下偏差偏大，经常波动;a)微分系数过小，对即时变化反应不够快，反映措施不力;b)积分系数过大，使微分反应被淹没钝化;<br>c）设定的基本定时周期过短，加热没有来得及传到测温点;4．受工作环境影响较大，在稍有变动时就会引起温度的波动:a)微分系数过小，对即时变化反应不够快，不能及时反映;b)设定的基本定时周期过长，不能及时得到修正;<br>关于自整定问题:<br>​        在通用仪表行业用得比较多，因为他们的工作对象是不确定的，而不同的对象所使用的参数是千变万化的，所以无法为用户设定参数。这就引入了自整定的概念，用户在首次使用的时候，启动自整定功能专门为新的工作对象寻找一套参数，并把他们记忆下来，作为今后工作的依据。其实自整定也就是作N次的测定，根据实际变化反应反复对参数进行修正，当达到一定要求后宣告自整定完成。这是一个多元素的优化问题，可以采用很多种优化方法，例如0.618黄金分割法就是一种很不错的算法，可以参考有关优化算法的书籍，我们这里就不做讨论了，需要说明的是，我们是对全部参数进行同时优化的，根据出现的不同情况去修正不同参数，我们的修正量将逐步缩小，当我们的修正量达到一定的范围以后，或者实测温度变化波动已经达到一定范围以后就可以认为自整定过程结束，记录最后结果返回正常控制状态。由于优化过程需要进行大量的试探，所以一次自整定过程往往需要花费很长时间，一般在半小时到两个小时左右。<br>​        控制的方法不是只有PID一种，在很多场合他也未必就是最佳的控制算法，随着大量的应用研究，有很多种新的理念新的方法可以完全替代它，但是PID作为一种基本的控制算法已经比较成熟,基于PID为基础的变种算法或者叫做加强算法也派生了很多，他们的控制效果往往会比PID更有效,最常见的是对这里的3个参数以控制目标为基准，参数相应成比例的变化，PID上的PID。<br>​        本人对PID的认识还很肤浅，现在仍停留在理论层面，具体做的并不多，难免会对有些地方叙述有错误或不恰当，但是本人也在努力加点控制的技能树，敬请您批评指正，我非常乐意接受您的指正。</p>
+                <h1 id="1-机械臂关节模组"><a href="#1-机械臂关节模组" class="headerlink" title="1.机械臂关节模组"></a>1.机械臂关节模组</h1><h2 id="1-1结构组成"><a href="#1-1结构组成" class="headerlink" title="1.1结构组成"></a>1.1结构组成</h2><table>
+<thead>
+<tr>
+<th>机械臂关节模组</th>
+<th>部件供应商</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>机械抱闸</td>
+<td>德国TQ</td>
+</tr>
+<tr>
+<td>无框力矩电机</td>
+<td>科尔摩根、德国TQ、泰科伺服、杭州精导</td>
+</tr>
+<tr>
+<td>谐波减速器</td>
+<td>绿的、来福、山卓等、日本Harmonic Drive 哈默纳科</td>
+</tr>
+<tr>
+<td>光电编码器（减速器前，与电机构成伺服电机）</td>
+<td>US digital、泰科伺服</td>
+</tr>
+<tr>
+<td>绝对值编码器（减速器后，测量机械臂的输出轴绝对角度）</td>
+<td>尼康、多摩川、零差云控、英国尼绍、AMS</td>
+</tr>
+<tr>
+<td>伺服驱动器</td>
+<td>德国赛普思、武汉迈信、中科深谷</td>
+</tr>
+</tbody></table>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E5%85%B3%E8%8A%82%E6%A8%A1%E7%BB%84%E7%BB%93%E6%9E%84%E7%BB%84%E6%88%90.png" alt="六轴机械臂关节模组结构组成"></p>
+<h2 id="1-2谐波减速器"><a href="#1-2谐波减速器" class="headerlink" title="1.2谐波减速器"></a>1.2谐波减速器</h2><h3 id="1-2-1原理"><a href="#1-2-1原理" class="headerlink" title="1.2.1原理"></a>1.2.1原理</h3><p>​        谐波减速器主要由波发生器、柔性齿轮、刚 性齿轮、柔性轴承、交叉滚子轴承等五个基本构件组成，是一种靠波发生器装配上柔性轴承 使柔性齿轮产生可控弹性变形，并与刚性齿轮相啮合来传递运动和动力的齿轮传动。谐波齿轮传动减速器是利用行星齿轮传动原理发展起来的一种新型减速器。 </p>
+<p>谐波减速器主要有以下三个基本构件：</p>
+<p>➢ 带有内齿圈的刚性齿轮（刚轮），它相当于 行星系中的中心轮； </p>
+<p>➢ 带有外齿圈的柔性齿轮（柔轮），它相当于 行星齿轮；</p>
+<p>➢ 波发生器，它相当于行星架。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/%E8%B0%90%E6%B3%A2%E5%87%8F%E9%80%9F%E5%99%A8.png" alt="谐波减速器"></p>
+<h3 id="1-2-2主要特点"><a href="#1-2-2主要特点" class="headerlink" title="1.2.2主要特点"></a>1.2.2主要特点</h3><ol>
+<li>承载能力高，谐波传动中，齿与齿的啮合是面接触，加上同时啮合齿数（重叠系数）比较多（同时啮合的齿数占总齿数的约30%），因而单位面积载荷小，承载能力较其它传动形式高。 </li>
+<li>传动比大，双级谐波齿轮传动的传动比，可达i&#x3D;30～320。</li>
+<li>体积小、重量轻，与以往的齿轮装置相比，体积为1&#x2F;3，重量为1&#x2F;2，却能获得相同的转矩容量和减速比，实现小型轻量化，尤其适合机器人使用。 </li>
+<li>传动效率高、寿命长。 </li>
+<li>传动平稳、无冲击，噪音低，齿隙小，运动精度高。 </li>
+<li>零部件少、安装简便 。</li>
+<li>缺点：由于柔轮承受较大的交变载荷，因而对柔轮材料的抗疲劳强度、加工和热处理要求较高，柔轮材料使用疲劳强度大的特殊钢，工艺复杂，造价昂贵。</li>
+</ol>
+<h2 id="1-3无框力矩电机"><a href="#1-3无框力矩电机" class="headerlink" title="1.3无框力矩电机"></a>1.3无框力矩电机</h2><h3 id="1-3-1主要特点"><a href="#1-3-1主要特点" class="headerlink" title="1.3.1主要特点"></a>1.3.1主要特点</h3><p>➢ 控制精准：转矩脉动极低，扭矩和电流线性度好，易于速度控制和精确位置定位控制 </p>
+<p>➢ 响应快速：转动惯量小、动态响应快、具有优异的动态性能 </p>
+<p>➢ 结构紧凑、功率密度高：定转子结构紧凑，转子采用高性能稀土永磁材料 </p>
+<p>➢ 散热性能好：散热好、绝缘佳 </p>
+<p>➢ 大中空孔径：中空大孔径，可以进行中间走线</p>
+<h2 id="1-4绝对值编码器"><a href="#1-4绝对值编码器" class="headerlink" title="1.4绝对值编码器"></a>1.4绝对值编码器</h2><p>➢ 测量机械臂关节末端的绝对值角度 </p>
+<p>➢ 标定绝对零点 </p>
+<p>➢ 采用BISS协议与驱动器进行通讯 </p>
+<p>➢ 上电驱动器和控制器就能获得机械臂关节 的角度。 </p>
+<p>➢ 该编码器不能进行多圈测量，可选用尼康、 多摩川等编码器实现多圈的角度的测量，不过通常需要额外增加电池供电，断电才不会丢失圈数信息</p>
 
                 
             </div>
@@ -423,7 +498,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://rickylove67.github.io/2023/01/04/pid%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/">http://rickylove67.github.io/2023/01/04/pid%E7%AE%97%E6%B3%95%E5%BF%83%E5%BE%97/</a>
+                    <a href="http://rickylove67.github.io/2023/02/15/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/">http://rickylove67.github.io/2023/02/15/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -504,54 +579,18 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2023/01/04/%E6%9C%BA%E6%A2%B0%E8%AE%BE%E8%AE%A1%E5%BF%83%E5%BE%97/">
+                <a href="/2023/02/15/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/5.jpg" class="responsive-img" alt="机械设计心得">
+                        <img src="/medias/featureimages/3.jpg" class="responsive-img" alt="六轴机械臂概述">
                         
-                        <span class="card-title">机械设计心得</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-04
-                        </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-user fa-fw"></i>
-                            RickyLove
-                            
-                        </span>
-                    </div>
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2023/01/04/Robomaster%E9%87%8D%E5%8A%9B%E8%A1%A5%E5%81%BF%E5%B9%B3%E8%A1%A1/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="Robomaster重力补偿平衡">
-                        
-                        <span class="card-title">Robomaster重力补偿平衡</span>
+                        <span class="card-title">六轴机械臂概述</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -562,7 +601,45 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-04
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-02-15
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            RickyLove
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/26/51%E5%8D%95%E7%89%87%E6%9C%BA%E5%AE%9E%E8%B7%B5-%E8%87%AA%E5%8A%A8%E6%B5%87%E8%8A%B1/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/14.jpg" class="responsive-img" alt="51单片机实践-自动浇花">
+                        
+                        <span class="card-title">51单片机实践-自动浇花</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-26
                             </span>
                         <span class="publish-author">
                             
