@@ -1,0 +1,1225 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="Robomaster21赛季及22赛季步兵设计相关, RickyLove">
+    <meta name="description" content="
+​                                                                                                   21赛季步兵
+1、制作思路、技术方案、">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>Robomaster21赛季及22赛季步兵设计相关 | RickyLove</title>
+    <link rel="icon" type="image/png" href="/favicon.png">
+    
+
+
+    <!-- bg-cover style     -->
+
+
+
+<link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+<link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+<link rel="stylesheet" type="text/css" href="/css/matery.css">
+<link rel="stylesheet" type="text/css" href="/css/my.css">
+<link rel="stylesheet" type="text/css" href="/css/dark.css" media="none" onload="if(media!='all')media='all'">
+
+
+
+
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+    <link rel="stylesheet" href="/css/post.css">
+
+
+
+
+    
+
+
+
+    <script src="/libs/jquery/jquery-3.6.0.min.js"></script>
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">RickyLove</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light">
+      
+      <i class="fas fa-home" style="zoom: 0.6;"></i>
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light">
+      
+      <i class="fas fa-tags" style="zoom: 0.6;"></i>
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light">
+      
+      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light">
+      
+      <i class="fas fa-archive" style="zoom: 0.6;"></i>
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light">
+      
+      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light">
+      
+      <i class="fas fa-comments" style="zoom: 0.6;"></i>
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/friends" class="waves-effect waves-light">
+      
+      <i class="fas fa-address-book" style="zoom: 0.6;"></i>
+      
+      <span>友情链接</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+  <li>
+    <a href="javascript:;" class="waves-effect waves-light" onclick="switchNightMode()" title="深色/浅色模式" >
+      <i id="sum-moon-icon" class="fas fa-sun" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">RickyLove</div>
+        <div class="logo-desc">
+            
+            stay hungry , stay foolish
+            
+        </div>
+    </div>
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-home"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-tags"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-bookmark"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-archive"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-user-circle"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-comments"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/friends" class="waves-effect waves-light">
+			
+			    <i class="fa-fw fas fa-address-book"></i>
+			
+			友情链接
+		</a>
+          
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
+                <i class="fab fa-github-square fa-fw"></i>Fork Me
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="Fork Me" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/11.jpg')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">Robomaster21赛季及22赛季步兵设计相关</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="post-container content">
+
+    
+    <div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                          <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                          </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2023-01-03
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/%E6%AD%A5%E5%85%B5.png" alt="步兵"></p>
+<p>​                                                                                                   21赛季步兵</p>
+<h1 id="1、制作思路、技术方案、战术定位概要"><a href="#1、制作思路、技术方案、战术定位概要" class="headerlink" title="1、制作思路、技术方案、战术定位概要"></a>1、制作思路、技术方案、战术定位概要</h1><h2 id="1-1-步兵战术定位与设计思路"><a href="#1-1-步兵战术定位与设计思路" class="headerlink" title="1.1 步兵战术定位与设计思路"></a>1.1 步兵战术定位与设计思路</h2><p>​        步兵是Robomaster比赛的核心兵种之一，移动灵活，具有平衡的攻击力和防御力。设计步兵机器人机械结构时，需要考虑好精度、强度和重量，在保证强度和精度等性能的前提下进行减重优化，最大限度提高移动能力。</p>
+<h2 id="1-2-步兵技术方案"><a href="#1-2-步兵技术方案" class="headerlink" title="1.2 步兵技术方案"></a>1.2 步兵技术方案</h2><p>​        国赛步兵采用较为传统的独立悬挂麦轮底盘+上供弹云台的方案，旨在追求稳定性和轻量化。电控技术方案在后文详细介绍。</p>
+<hr>
+<h1 id="2、机器人的主要技术参数说明"><a href="#2、机器人的主要技术参数说明" class="headerlink" title="2、机器人的主要技术参数说明"></a>2、机器人的主要技术参数说明</h1><h3 id="①机械参数"><a href="#①机械参数" class="headerlink" title="①机械参数"></a>①机械参数</h3><p>步兵机器人总重量约为18.4千克，车长590mm，车宽 500mm  车高490mm、</p>
+<p>重心位于云台前方距地面约170mm处。</p>
+<h3 id="②电路功耗，所有电容总容量，工作时电压范围"><a href="#②电路功耗，所有电容总容量，工作时电压范围" class="headerlink" title="②电路功耗，所有电容总容量，工作时电压范围"></a>②电路功耗，所有电容总容量，工作时电压范围</h3><p>电路功耗大约在25W左右，所有电路板均为电池电压供电，步兵的超级电容使用9个60F电容串联总容量为6.667F。</p>
+<h3 id="③传感器种类以及个数"><a href="#③传感器种类以及个数" class="headerlink" title="③传感器种类以及个数"></a>③传感器种类以及个数</h3><table>
+<thead>
+<tr>
+<th>种类</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工业相机</td>
+<td>1</td>
+</tr>
+<tr>
+<td>大疆C板自带IMU</td>
+<td>1</td>
+</tr>
+<tr>
+<td>大疆电机自带编码器</td>
+<td>9</td>
+</tr>
+</tbody></table>
+<h3 id="④机器人执行器件（电机、气缸等）用途与数量说明"><a href="#④机器人执行器件（电机、气缸等）用途与数量说明" class="headerlink" title="④机器人执行器件（电机、气缸等）用途与数量说明"></a>④机器人执行器件（电机、气缸等）用途与数量说明</h3><table>
+<thead>
+<tr>
+<th>电机</th>
+<th>用途</th>
+<th>数量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RM3508</td>
+<td>麦轮底盘驱动电机摩擦轮电机</td>
+<td>42</td>
+</tr>
+<tr>
+<td>GM6020</td>
+<td>云台电机</td>
+<td>2</td>
+</tr>
+<tr>
+<td>舵机</td>
+<td>开关弹仓盖</td>
+<td>1</td>
+</tr>
+<tr>
+<td>RoboMaster M2006 P36</td>
+<td>拨弹电机</td>
+<td>1</td>
+</tr>
+</tbody></table>
+<hr>
+<h1 id="3、机器人机械设计"><a href="#3、机器人机械设计" class="headerlink" title="3、机器人机械设计"></a>3、机器人机械设计</h1><p>这里主要展示设计过程中进行较多方案优化的部分。</p>
+<h2 id="3-1-云台支架仿真优化"><a href="#3-1-云台支架仿真优化" class="headerlink" title="3.1 云台支架仿真优化"></a>3.1 云台支架仿真优化</h2><p>由于在前几版使用的云台支架重量比较大，因此有对云台支架进行减重优化的需求。</p>
+<h3 id="3-1-1-指标计算"><a href="#3-1-1-指标计算" class="headerlink" title="3.1.1 指标计算"></a>3.1.1 指标计算</h3><ul>
+<li>改进前质量（根据体积计算取ρ&#x3D;2.7g&#x2F;cm³）</li>
+<li>云台支架R   116.3g</li>
+</ul>
+<h3 id="3-1-2-仿真内容"><a href="#3-1-2-仿真内容" class="headerlink" title="3.1.2 仿真内容"></a>3.1.2 仿真内容</h3><p>正常情况不做讨论，只对几种应力比较大的情况进行分析。</p>
+<p><strong>Ⅰ飞坡翻车（车身翻转180°，云台磕地）</strong></p>
+<p>飞坡翻车时，云台朝向地面，此时云台支架承受的是底盘的重量，底盘重量13.5kg，这次分析中，所有的情况下都假设云台支架受到竖直方向的力都均摊到两个支架上。</p>
+<p>前设条件</p>
+<p>飞坡时步兵速度v&#x3D;5m&#x2F;s</p>
+<p>场地飞坡角度α&#x3D;35.5°</p>
+<p>则竖直方向上的速度分量v₂&#x3D;2.9m&#x2F;s</p>
+<p>根据之前的对撞实验，碰撞过程一般在 t&#x3D;0.1s左右，虽然飞坡翻车是一个移动物体撞击固定地面，但是地面有硬度为25HC的泡棉缓震，因此做近似处理。则有</p>
+<p>Ft&#x3D;Mv₂（全车重取M&#x3D;19kg）</p>
+<p>由此可得冲击力的估值为F&#x3D;551N分到每个支架上的冲击力即f&#x3D;F&#x2F;2&#x3D;275.5N</p>
+<p><strong>Ⅱ下台阶翻车（车身前翻90°，枪管插地）</strong></p>
+<p>相比情况Ⅰ，这种情况的受力大小小很多，主要区别为受力方向为前后水平（支架坐标系，下同）。</p>
+<p>根据简单的实测，步兵静止枪管插地时两支架受到的水平力大小约F₁&#x3D;58.8N考虑到实际环境为非静止，但计算时是以静止实测值为参考，故取一个较高的安全系数进行计算，这里取6。即每个支架受力f&#x3D;6F&#x2F;2&#x3D;176.4N</p>
+<p>Ⅲ侧翻</p>
+<p>与情况Ⅱ相近，取值方式参考上一个情况，实测值F₁&#x3D;51.9N方向左右水平</p>
+<p>可得f&#x3D;155.7N</p>
+<p><strong>原支架的仿真如下图（</strong>情况Ⅰ<strong>）</strong></p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629639561027-fa4c07c9-c2d6-4e02-965f-2792aca8c273.png" alt="img"></p>
+<p>在原支架中，等效应力最大的地方如图所示，这个地方我认为是一个可以进行减重的地方，并且可以进一步拉大圆角，减小应力集中防止疲劳。<img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629640005537-24deceb6-1997-4b38-b362-1e4c67ab1fec.png" alt="img"></p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629640067336-f21b94a4-49c9-4595-a2dd-17040dd3ffeb.png" alt="img"><strong>情况Ⅱ仿真图</strong></p>
+<p>无论在情况Ⅰ还是情况Ⅱ，根据仿真结果，情况Ⅰ底部为均匀受力，情况Ⅱ为靠近两端的部分为主要受力部分，为了减重可以将中间部分进行切除。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629640184584-57e6f814-fe5f-4b6a-9cee-80907e4d9945.png" alt="img"></p>
+<p><strong>情况Ⅲ仿真图</strong></p>
+<p>情况Ⅲ零件仿真结果根据分析准确性存疑，可能是由于力指标给的不合适或者边界条件不合适，因此在重新设置了边界条件后结果如图，结果仅作为参考。</p>
+<p>根据结果得出了三个可以进行减重的区域，下图中红框所示。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629640612613-1ed06085-1a1e-42fa-b94c-42edb960bf33.png" alt="img"></p>
+<p><strong>减重区域</strong></p>
+<p><strong>减重过程：</strong></p>
+<p>通过在应力较小不集中的地方打孔，增大原版减重孔，进行减重，并且在改进过程中，通过对不同区域使用不同厚度，有效的分散了应力，使受力状况更加合理，有利于缓解支架使用疲劳，延长使用寿命。</p>
+<p>减重后质量m&#x3D;71.8g   Δm&#x3D;44.5g 减重38.3%</p>
+<p>减重后的分析如图：</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629640669106-b4e874cb-1e4e-47ed-8549-83a0d6133055.png" alt="img"></p>
+<p><strong>（情况Ⅰ）</strong></p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629640760190-06fe8f63-697d-46c3-99f5-bc337309bcd0.png" alt="img"><strong>（情况Ⅲ）</strong></p>
+<h2 id="3-2-Pitch加工件联轴优化"><a href="#3-2-Pitch加工件联轴优化" class="headerlink" title="3.2 Pitch加工件联轴优化"></a>3.2 Pitch加工件联轴优化</h2><p>​        步兵在前几个赛季中联轴采用的是D型轴和压板联轴器的连接方式，实际使用中出现的主要问题有由于空间狭小，防松螺母安装困难，有些螺母甚至因为干涉无法安装到位，装配和维修整体上都比较繁琐，并且压板使用达到一定时间后会出现失效，产生虚位。</p>
+<p>​        对应上述问题，首先是把与板材连接之前使用放松螺母的地方改为了螺纹孔，搭配螺丝胶使用。并且放弃了压板联轴的方式，在原有的大体形状不变的基础上（为了兼容之前的版本，可以用在老款步兵上），采用两销孔（下图红色箭头）加两螺纹孔（下图蓝色箭头）的连接方式，使用销来径向限位，螺栓负责轴向压紧。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629640947144-48575b75-3624-44eb-adf9-15233094fe1b.png" alt="img"></p>
+<p><strong>联轴加工件优化图示</strong></p>
+<h2 id="3-3-摩擦轮稳定性增强"><a href="#3-3-摩擦轮稳定性增强" class="headerlink" title="3.3 摩擦轮稳定性增强"></a>3.3 摩擦轮稳定性增强</h2><p>摩擦轮在之前的测试中，在发射瞬间，因轴向约束只有摩擦轮电机底部的螺栓，故精度较低易发生颤动。基于这种需求，在摩擦轮上增加一个轴，与云台的底层板通过一个轴承进行接触，增加一个轴向的虚约束，进而改进摩擦轮运行过程中的稳定性。（结构如下图）</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641022368-e8f633a8-b773-4b0b-aebe-2b5a7076a135.png" alt="img"></p>
+<p><strong>联轴加工件优化图示</strong></p>
+<h2 id="3-4-步兵悬挂设计与分析"><a href="#3-4-步兵悬挂设计与分析" class="headerlink" title="3.4 步兵悬挂设计与分析"></a>3.4 步兵悬挂设计与分析</h2><p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641096772-cf398291-be2f-410e-ab72-28317ea08197.png" alt="img"></p>
+<p><strong>步兵悬挂结构</strong></p>
+<ul>
+<li><strong>悬挂工况需求分析</strong></li>
+</ul>
+<p>在设计悬挂前，需先计算出悬挂在不同工况下的受力情况以确定几何参数。</p>
+<p>当机器人加速启动时，整车会出现车尾下沉的情况，从而使减震器所受压力远超平稳状态下，经分析发现为惯性力导致。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641185675-d993184b-e7d6-45e1-b1ba-98b30b7889b8.png" alt="img"></p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641213788-aab53930-d623-4e2b-a6e6-4c3d4a1868fe.png" alt="img"></p>
+<p><strong>悬挂受压分析</strong></p>
+<p>J越接近1，则点头角越小，但过小的点头角会影响通过性，参考上述受力分析以作为后续adams优化仿真时的参数调整方向。</p>
+<p>对步兵运动进行仿真，结果确实出现了车尾下沉的情况。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641450670-0a5de7a5-0fd9-4055-9212-d8a78f8f92a9.png" alt="img"><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641467729-b2ac341c-da27-4e8d-afa6-affc438f4019.png" alt="img"><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641534360-182cf524-3b04-4e7b-9f71-d18c547b3ae0.png" alt="img"></p>
+<p>通过打开后处理查看数据，得到单悬挂最大压力为65N。</p>
+<ul>
+<li><p><strong>结构设计与优化</strong></p>
+</li>
+<li><ul>
+<li>查看减震器存在非线性曲线，通过设计将整个过程的形变量都覆盖在减震器的有效区间内并保证留有一定余量。</li>
+<li>通过adams进行设计仿真，分别计算当受力为37.5N时形变量的最大值和65N时形变量的最小值，由此确定在当前组合下的避震器的极限变形区间，选择一个较符合需求的组合缩小范围继续进行人工迭代。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641647963-802fdf00-2b18-41be-844f-b3fb124ddac0.png" alt="img"></p>
+<p><strong>仿真尝试</strong></p>
+<ul>
+<li><ul>
+<li>经过多次迭代后确定一组组合值，而后带回原参数化进行模拟，结果如下：</li>
+</ul>
+</li>
+</ul>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/1629641757732-2097f601-cf6c-4da9-af29-c8853074d68f.png" alt="img"></p>
+<p><strong>优化结果</strong></p>
+<p>虽然在结果中65N情况下避震器压缩量较大，但考虑到65N为瞬时最大值，存在一定误差，因此进行一定的修正。</p>
+<p>可以看到，当利用函数将压力改为逐渐减小到稳定的过程时，弹簧形变比较理想。</p>
+<p>根据所得几何参数，即可设计确定步兵悬挂参数。</p>
+<h1 id="22赛季步兵"><a href="#22赛季步兵" class="headerlink" title="22赛季步兵"></a>22赛季步兵</h1><p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5.png" alt="22赛季步兵"></p>
+<h3 id="1-综述"><a href="#1-综述" class="headerlink" title="1.综述"></a>1.综述</h3><p>​        步兵机器人在RMUC中是一个数量最多、机动性很强的地面单位，有地面近战、远战、打 哨兵、飞坡、激活能量机关、躲避攻击、快速移动、通过起伏路段、UI等多个技术需求。</p>
+<h4 id="1-1-地面近战"><a href="#1-1-地面近战" class="headerlink" title="1.1 地面近战"></a>1.1 地面近战</h4><p>​        针对地面近战，分攻击和防御两部分。 </p>
+<h5 id="1、攻击方面："><a href="#1、攻击方面：" class="headerlink" title="1、攻击方面："></a>1、攻击方面：</h5><p>​        对步兵机器人的自瞄能力和拨弹的顺滑程度有较高要求，在往年的比赛中 可以看到强校的步兵机器人近身搏击的攻击能力是很强的，分析可以看出两个共同点：</p>
+<p>​        ① 基本都是逮住目标“一梭子”解决，即一下子把枪口热量打满，这要求拨弹盘在快 速拨弹时不能卡弹、且快速发弹时弹道一致性是可以保证的，例如哈深使用了球底环和横向 轴承来减少弹丸和底面、拨弹叉的摩擦。电控方面，有的学校还会去进行特殊的算法来保证 连续发弹时摩擦轮转速的稳定。 </p>
+<p>​        ② 有强大的自瞄能力，可以提高弹丸的利用率，对视觉和电控要求较高。这方面做的 比较好的有上交云汉交龙战队、哈工大CRT战队、华工华南虎战队等。</p>
+<p>​        A 识别部分，在和中石油华东视觉同学交流时发现对于视觉识别方面传统视觉已经落后 了，预计今年一些中上水平的学校会去强化这部分。 </p>
+<p>​        B 自瞄运动预测也是决定了自瞄精度的重要部分，大部分学校可能都是使用匀速直线模 型或者二次函数模型进行最小二乘法拟合或卡尔曼滤波，哈工大使用的singer模型。 </p>
+<p>​        C 另外对于电控云台控制精度以及响应速度也是很重要的，大部分学校使用的传统串级 PID，有的加了前馈，也有学校使用滑模控制，部分学校在研究ADRC。 </p>
+<p>​        D 对于边防御（小陀螺）边攻击的自瞄，需要小陀螺时roll方向的晃动尽可能的小，要 求机械保证云台与地面的垂直度。从比赛视频可以看出来基本上大家的步兵平地小陀螺多少 都会晃动。 </p>
+<p>​        E 反陀螺技术。 </p>
+<p>​       ③ 在贴脸打的时候，云台俯角是很重要的一个技术要求。 </p>
+<h5 id="2、防御方面："><a href="#2、防御方面：" class="headerlink" title="2、防御方面："></a>2、防御方面：</h5><p>​        对步兵机器人对弹丸的躲避能力和机械强度以及稳定性有较高要求。 </p>
+<p>​        ① 快速小陀螺。小陀螺转的越快视觉的识别难度越大，快到一定程度时基本就没法识 别了。但是对于传统麦轮底盘来说快速小陀螺比较耗电，如果是在起伏路段上小陀螺就更加 耗电了，相对于独立悬挂自适应悬挂抓地能力强耗电少更有优势；如果使用舵轮底盘、全向 轮底盘就可以在功率限制范围内实现快速小陀螺，RMUC2021中哈工大、华工、桂电使用了舵 轮底盘，哈深使用了全向轮底盘。尽管新规则对于舵轮的舵进行了功率限制，今年依然可能 会有很多学校做舵轮步兵。另外研发更高效的超级电容、优化底盘的效率曲线也是需要重点 考虑的，例如东大的步兵就是非常快。 </p>
+<p>​        ② 装甲板高低分布。装甲板一高一低的安装可能可以影响一部分学校的视觉反陀螺算 法，以及减少手瞄的命中率。 </p>
+<p>​        ③ 保证机械强度，防止变形导致的机构失效，提高整体稳定性。近身搏击时可能会发 生一些碰撞，这就要求机器人需要保证自身强度和刚度，例如RMUC2021北部赛哈威对东北林业小组赛，东林的一个步兵机器人底盘防撞架铝管变形卡住了一个轮子，这个问题可以通过铝管中塞木块或者铝管+板材防撞架解决。另外，防撞架上尽量不要有能够与对方固连的机构， 例如RMUC2021北部赛哈威对东大小组赛，哈威小步兵的竖直导轮与东大步兵的翘边防撞架勾 在了一起。另外还需要保证对硬件的保护，防止电路板和线路被撞断、挂断。</p>
+<p>​        ④ 防止被十字卡位，会有学校设计圆形底盘，例如哈工深、华工的步兵，但是圆形底 盘就不容易缩小尺寸。 </p>
+<h4 id="1-2-地面远战"><a href="#1-2-地面远战" class="headerlink" title="1.2 地面远战"></a>1.2 地面远战</h4><p>​        地面远战主要是出现在步兵协助英雄进攻、驱赶正在攻击自家前哨站的英雄机器人。对 17mm发射机构弹道一致性有较高要求，对视觉远距离识别和自瞄有较高要求，另外也对电控 云台控制精度有较高要求。上交步兵的远距离识别做的就很好。 17mm发射机构方面，影响其一致性的有摩擦轮本身、摩擦轮转速控制、发射机构限位等。 摩擦轮大部分学校是使用去掉减速箱的3508电机+溪地摩擦轮，摩擦轮转速控制基本都是普通 PID，但也会有一些学校进行特殊的处理例如哈深分段PID，发射机构限位有上交的拨片式限位、哈工大的拨珠螺栓限位、我们队之前的双U型轴承限位等等。 </p>
+<h4 id="1-3-打哨兵"><a href="#1-3-打哨兵" class="headerlink" title="1.3 打哨兵"></a>1.3 打哨兵</h4><p>​        步兵打哨兵对于步兵云台仰角有一定的要求，对于视觉自瞄也有较高的要求，一般很少 有学校靠手瞄去打哨兵。对于哨兵自瞄，做了特殊处理的学校像浙大，不考虑pitch轴仅对yaw 轴卡尔曼滤波进行运动预测。 </p>
+<h4 id="1-4-飞坡"><a href="#1-4-飞坡" class="headerlink" title="1.4 飞坡"></a>1.4 飞坡</h4><p>​        由于RMUC2022的起伏路段面积几乎遍布整个中间赛场，飞坡可能会成为比赛的一个关键点。哈工大和哈工程的步兵非常喜欢飞坡，利用飞坡增益去进行一次次的攻击。 飞坡对于机械强度有着较高的要求。对于轮组的强度问题，东莞理工、哈工程的方案非 常可靠，据说都是在东莞理工的开源方案上进行的优化。对于如何在尽量减少重量的基础上 保证飞坡的底盘强度，可以参考斯基开源的《轻量化设计指南》。论坛上面可以找到两篇飞坡相关仿真和分析，但是往往大部分学校都没有对飞坡进行特殊分析和处理。 </p>
+<h4 id="1-5-激活能量机关"><a href="#1-5-激活能量机关" class="headerlink" title="1.5 激活能量机关"></a>1.5 激活能量机关</h4><p>​        能量机关在RMUC2021中往往会成为比赛取胜的关键点，哈工大、上交、浙大的控符能力 都是非常出色的，但是开源的不多，所以也不好评价大家的算法。总体来说还是很有难度的 一个技术点，稳定激活能量机关的学校在RMUC2021中并不多。 </p>
+<h4 id="1-6-起伏路段"><a href="#1-6-起伏路段" class="headerlink" title="1.6 起伏路段"></a>1.6 起伏路段</h4><p>​        起伏路段面积大幅增加，对于步兵机器人底盘通过性有了更高的要求，需要有良好的悬 挂系统和云台自稳能力，以使得在通过起伏路段时能够减少云台的抖动，以提高命中率。猜 测大部分学校针对这条多少都会有些改进，例如选用自适应悬挂、主动悬挂等方式。由于主 动悬挂对于测量带宽及响应速度的较高要求，可能不会有太多学校考虑。对于水平止步在区 域赛小组赛的队伍来说，可能精力更多的会花费在其他兵种以及电控视觉的能力提升，使用传统独立悬挂的概率较大，因此这些学校的步兵底盘通过性能会稍差一些。大部分学校可能会选择自适应悬挂，一部分考虑类似于大连理工大学凌bug战队开源步兵前后两轮联动悬挂， 但是由于如果仅前后两轮联动，会导致需要复杂的调平，否则会出现roll轴上的倾斜，另一 个缺点是可能会向前或向后倾斜，导致小陀螺时会有roll轴的倾斜；另一部分可能会类似于上海交通大学云汉交龙战队开源英雄的四轮联动悬挂，但是这会增加机器人的重量。 </p>
+<h4 id="1-7-UI"><a href="#1-7-UI" class="headerlink" title="1.7 UI"></a>1.7 UI</h4><p>​        对于自定义UI方面，大部分学校都会有电控控制模式的显示，大部分学校有静止的辅助 瞄准线，少部分学校会进行动态的辅助瞄准。对于状态的提示有些做的比较好的学校是选择 用有颜色的框来提示，例如大连理工大学通过四周的颜色来提示操作手底盘状态、哈深通过 狙击框的颜色来提示自瞄是否准备好等，值得学习。</p>
+<h3 id="2-机器人核心参数"><a href="#2-机器人核心参数" class="headerlink" title="2.机器人核心参数"></a>2.机器人核心参数</h3><p><img src="/../images/Robomaster21%5Bc%EF%BF%BD22%5Bceu%EF%BF%BD%EF%BF%BD%EF%BF%BDs/U%60%6097%5BXJBK7%25E%7DC%7DNOSF%7DG6.png" alt="img"></p>
+<h3 id="3-步兵硬件图（走线）"><a href="#3-步兵硬件图（走线）" class="headerlink" title="3.步兵硬件图（走线）"></a>3.步兵硬件图（走线）</h3><p>  ![img](file:&#x2F;&#x2F;&#x2F;C:\Users\RickyLove\Documents\Tencent Files\839351467\Image\C2C\EZH_ZU8VHS[JS6PG@R_}({3.png)</p>
+<h3 id="4-悬挂"><a href="#4-悬挂" class="headerlink" title="4.悬挂"></a>4.悬挂</h3><p>​       步兵的悬挂一般包括横向悬挂。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/KNVJ(TIYQ)@_C%7BXU289C_LC.png" alt="img"></p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/E(PM6J)5I%5D%7DX_UJJO%5DI%5BQD.png" alt="img"></p>
+<p>​        横向悬挂占空间小，底盘上有更多空间留给电器元件安装，但飞坡时纵向冲击对其磨损较大，要注意与底盘 的固定，不然容易外八。横向悬挂占空间较大，但更适合飞坡，纵向空间加大，避震器也可 以选择更长的孔距，飞坡时单位时间可以吸收更多的能量。 <img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/%E7%BA%B5%E8%BD%B4%E6%82%AC%E6%8C%82%E6%95%B4%E4%BD%93%E8%AE%BE%E8%AE%A1%E5%9B%BE.png" alt="纵轴悬挂整体设计图"></p>
+<p>​        除了普通悬挂，还有主动悬挂和自适应悬挂，主动悬挂要有驱动力控制，四个轮子始终 着地，底盘可以更稳，但难度较大，现在还没有开源的主动悬挂底盘。自适应悬挂使底盘四 个麦轮至少同时有斜对向两个麦轮着地，确保其在任何时候地盘都可以前进或后退。 悬挂由轮系和减震机构组成，悬挂选的纵向悬挂方便飞坡与起伏路段,轮系选的上交的梅花联轴器。减震用了两级减震适应起伏路段。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/%E8%81%94%E5%8A%A8%E6%96%B9%E5%BC%8F%E5%9B%BE.png" alt="联动方式图"></p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/%E5%8D%95%E4%BE%A7%E8%81%94%E5%8A%A8.png" alt="单侧联动"></p>
+<p>​        联动方式是设计的精华所在，分单侧联动方式与左右联动方式。参考了B站上汽车横向悬挂的系统。</p>
+<p>​        联动方式说明：左右联动利用连杆机构将轮子的上下运动转换成导轨的前后直线运动，中间再用连杆将 左右导轨直线运动连接起来，达到左右联动的目的。考虑到底盘中间受云台影响较大，将中间连杆改成圆环型的活动构建。</p>
+<p>​        中部连杆圆环型设计效果图 底盘悬挂在草图模拟中进行20度斜坡上坡仿真中无磕碰情况，实际联动效果同样顺滑， 达到设计要求；且在自行搭建的起伏路上运转小陀螺时，云台晃动幅度远小于应用其他悬挂 的机器人。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/%E6%95%B4%E4%BD%93%E6%82%AC%E6%8C%82%E8%AE%BE%E8%AE%A1.png" alt="整体悬挂设计"></p>
+<p>​        整体联动如图所示，底盘承重，底盘承重总体采用碳板+铝管&#x2F;打印件+碳板的三明治结构，三者之间用螺栓固连形成刚 体，机构强度上没有问题。云台重量由底盘均匀分布在四个轮子上，在悬挂配合下能较好的 稳定整车重心。 外防撞架 外防撞架采用碳板固定，铝管补强的方式在易撞击位置用短铝管避免防撞架铝管过长被撞弯。</p>
+<p>​        </p>
+<h3 id="5-云台"><a href="#5-云台" class="headerlink" title="5.云台"></a>5.云台</h3><p>​        云台上个赛季的步兵云台质量是 3.5kg，经过 solidworks 的计算其水平转动惯量是 28811kg<em>mm2，云台结构的主要变化是将 6020 电机移动位置。同时发射模组整体尺寸没有较 大的变化。 其转动惯量&#x3D;28811-0.468</em>115<em>115+0.468</em>68<em>68&#x3D;24785.7kg</em>mm2，减小 14.0%。 已知采用 6020 电机作为 YAW 和 PITCH 轴电机，额定转矩为 1.2N<em>m。 之前的云台最大角加速度为 1.2N</em>m&#x2F;28811kg<em>mm2 &#x3D;41.65r&#x2F;s2。 现在云台最大角加速度为 1.2N</em>m&#x2F;24785.71kg*mm2 &#x3D;48.42r&#x2F;s2，提高 16%。 以击打能量机关为例，击打能量机关时 YAW 轴最大旋转角度大约为 11.4°，因此之前的 云台需要的时间 t1&#x3D;（11.4&#x2F;41.65）0.5 &#x3D;0.52s，现在的云台时间 t2&#x3D;（11.4&#x2F;48.42）0.5&#x3D;0.48s。 缩短时间 7.7%。</p>
+<p><img src="/../images/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/85M%7DYFE%7DY%5DYBJZ5FDY%7B5P3.png" alt="img"></p>
+<p>​         </p>
+<p>![img](file:&#x2F;&#x2F;&#x2F;C:\Users\RickyLove\Documents\Tencent Files\839351467\Image\C2C]%KA96SY<del>1I3G</del>H3CSG{6)8.png)</p>
+<h3 id="6-发射机构"><a href="#6-发射机构" class="headerlink" title="6.发射机构"></a>6.发射机构</h3><p>​        采用波珠螺丝定位。波珠螺丝作为一种可以调节的起到一定限位作用的螺栓，既有一定 的柔性，也具备比较好的调节能力。 波珠螺丝限位效果 拨弹盘的尺寸设计如图所示，易看出拨弹盘里的虚线是17mm小弹丸相切，小弹丸 排布之后是和摩擦轮相切的，拨弹盘的虚线是拨弹叉实际作用的线。这个好处是小弹丸离开 拨弹叉，不会受到拨弹叉初始位置的影响，对于弹丸稳定性有帮助。</p>
+<h3 id="7-双枪管"><a href="#7-双枪管" class="headerlink" title="7.双枪管"></a>7.双枪管</h3> <img src="../images/Robomaster21赛季及22赛季步兵设计相关/双枪管切换.png" alt="双枪管切换" style="zoom: 150%;" />
+
+ 
+
+<p>​        两个测速通过锁紧结构进行固定，并通过滑轨滑块连接云台。 利用连杆结构自锁的特性，防止枪口晃动。 利用连杆结构的精确特性，能减小切枪前后的位置误差。 连杆由 2006 电机驱动，占用空间小，重量轻，切换速度快。 短连杆上设计有机械限位，方便电控控制与校准。</p>
+<img src="../images/Robomaster21赛季及22赛季步兵设计相关/双枪管切换示意图.png" alt="双枪管切换示意图" style="zoom:150%;" />
+
+                
+            </div>
+            <hr/>
+
+            
+
+    <div class="reprint" id="reprint-statement">
+        
+            <div class="reprint__author">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-user">
+                        文章作者:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="/about" rel="external nofollow noreferrer">RickyLove</a>
+                </span>
+            </div>
+            <div class="reprint__type">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-link">
+                        文章链接:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    <a href="http://rickylove67.github.io/2023/01/03/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/">http://rickylove67.github.io/2023/01/03/Robomaster21%E8%B5%9B%E5%AD%A3%E5%8F%8A22%E8%B5%9B%E5%AD%A3%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1%E7%9B%B8%E5%85%B3/</a>
+                </span>
+            </div>
+            <div class="reprint__notice">
+                <span class="reprint-meta" style="font-weight: bold;">
+                    <i class="fas fa-copyright">
+                        版权声明:
+                    </i>
+                </span>
+                <span class="reprint-info">
+                    本博客所有文章除特別声明外，均采用
+                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
+                    许可协议。转载请注明来源
+                    <a href="/about" target="_blank">RickyLove</a>
+                    !
+                </span>
+            </div>
+        
+    </div>
+
+    <script async defer>
+      document.addEventListener("copy", function (e) {
+        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
+        M.toast({html: toastHTML})
+      });
+
+      function navToReprintStatement() {
+        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
+      }
+    </script>
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            <span class="chip bg-color">无标签</span>
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="twitter,facebook,google,qq,qzone,wechat,weibo,douban,linkedin" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2023/01/04/Hexo%E5%8D%9A%E5%AE%A2%E5%9B%BE%E7%89%87%E6%98%BE%E7%A4%BA%E6%95%99%E7%A8%8B/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/11.jpg" class="responsive-img" alt="Hexo博客图片显示教程">
+                        
+                        <span class="card-title">Hexo博客图片显示教程</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2023-01-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            RickyLove
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2023/01/03/Robomaster%E6%9C%BA%E6%A2%B0%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%88%E6%9C%AA%E5%AE%8C%E7%BB%93%EF%BC%89/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="Robomaster机械需要注意的问题（未完结）">
+                        
+                        <span class="card-title">Robomaster机械需要注意的问题（未完结）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2023-01-03
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-user fa-fw"></i>
+                            RickyLove
+                            
+                        </span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget card" style="background-color: white;">
+            <div class="toc-title"><i class="far fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fas fa-list-ul"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            collapseDepth: Number('0'),
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).hide();
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).show();
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
+<style>
+    .aplayer .aplayer-lrc p {
+        
+        display: none;
+        
+        font-size: 12px;
+        font-weight: 700;
+        line-height: 16px !important;
+    }
+
+    .aplayer .aplayer-lrc p.aplayer-lrc-current {
+        
+        display: none;
+        
+        font-size: 15px;
+        color: #42b983;
+    }
+
+    
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
+        left: -66px !important;
+    }
+
+    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
+        left: 0px !important;
+    }
+
+    
+</style>
+<div class="">
+    
+    <div class="row">
+        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
+                   server="netease"
+                   type="playlist"
+                   id="503838841"
+                   fixed='true'
+                   autoplay='false'
+                   theme='#42b983'
+                   loop='all'
+                   order='random'
+                   preload='auto'
+                   volume='0.7'
+                   list-folded='true'
+        >
+        </meting-js>
+    </div>
+</div>
+
+<script src="/libs/aplayer/APlayer.min.js"></script>
+<script src="/libs/aplayer/Meting.min.js"></script>
+
+    
+
+    <div class="container row center-align"
+         style="margin-bottom: 0px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2020-2023</span>
+            
+            <a href="/about" target="_blank">RickyLove</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            
+            <br>
+            
+            
+            
+            
+                <span id="busuanzi_container_site_pv">
+                &nbsp;|&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;
+                    <span id="busuanzi_value_site_pv" class="white-color"></span>
+            </span>
+            
+            
+                <span id="busuanzi_container_site_uv">
+                &nbsp;|&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;
+                    <span id="busuanzi_value_site_uv" class="white-color"></span>
+            </span>
+            
+            <br>
+
+            <!-- 运行天数提醒. -->
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link ">
+    <a href="https://github.com/RickyLove67" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fab fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:839351467@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fas fa-envelope-open"></i>
+    </a>
+
+
+<!-- 
+
+ -->
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=839351467" class="tooltipped" target="_blank" data-tooltip="QQ联系我: 839351467" data-position="top" data-delay="50">
+        <i class="fab fa-qq"></i>
+    </a>
+
+
+<!-- 
+
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fas fa-rss"></i>
+    </a>
+ -->
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 白天和黑夜主题 -->
+<div class="stars-con">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>  
+</div>
+
+<script>
+    function switchNightMode() {
+        $('<div class="Cuteen_DarkSky"><div class="Cuteen_DarkPlanet"></div></div>').appendTo($('body')),
+        setTimeout(function () {
+            $('body').hasClass('DarkMode') 
+            ? ($('body').removeClass('DarkMode'), localStorage.setItem('isDark', '0'), $('#sum-moon-icon').removeClass("fa-sun").addClass('fa-moon')) 
+            : ($('body').addClass('DarkMode'), localStorage.setItem('isDark', '1'), $('#sum-moon-icon').addClass("fa-sun").removeClass('fa-moon')),
+            
+            setTimeout(function () {
+            $('.Cuteen_DarkSky').fadeOut(1e3, function () {
+                $(this).remove()
+            })
+            }, 2e3)
+        })
+    }
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    
+
+    
+    
+    
+
+    <!-- 雪花特效 -->
+     
+        <script type="text/javascript">
+            // 只在桌面版网页启用特效
+            var windowWidth = $(window).width();
+            if (windowWidth > 768) {
+                document.write('<script type="text/javascript" src="/libs/others/snow.js"><\/script>');
+            }
+        </script>
+    
+
+    <!-- 鼠标星星特效 -->
+    
+
+     
+        <script src="https://ssl.captcha.qq.com/TCaptcha.js"></script>
+        <script src="/libs/others/TencentCaptcha.js"></script>
+        <button id="TencentCaptcha" data-appid="xxxxxxxxxx" data-cbfn="callback" type="button" hidden></button>
+    
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    <script src="/libs/others/clicklove.js" async="async"></script>
+    
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+    <script type="text/javascript" src="/libs/background/ribbon-dynamic.js" async="async"></script>
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
