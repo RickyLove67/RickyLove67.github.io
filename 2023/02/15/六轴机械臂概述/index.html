@@ -470,8 +470,372 @@
 <h2 id="1-4绝对值编码器"><a href="#1-4绝对值编码器" class="headerlink" title="1.4绝对值编码器"></a>1.4绝对值编码器</h2><p>➢ 测量机械臂关节末端的绝对值角度 </p>
 <p>➢ 标定绝对零点 </p>
 <p>➢ 采用BISS协议与驱动器进行通讯 </p>
-<p>➢ 上电驱动器和控制器就能获得机械臂关节 的角度。 </p>
+<p>➢ 上电驱动器和控制器就能获得机械臂关节的角度。 </p>
 <p>➢ 该编码器不能进行多圈测量，可选用尼康、 多摩川等编码器实现多圈的角度的测量，不过通常需要额外增加电池供电，断电才不会丢失圈数信息</p>
+<h1 id="2-机械臂分析"><a href="#2-机械臂分析" class="headerlink" title="2.机械臂分析"></a>2.机械臂分析</h1><h2 id="2-1引言"><a href="#2-1引言" class="headerlink" title="2.1引言"></a>2.1引言</h2><p>​        机械臂的运动学分析在整个仿真过程中是十分重要的，机械臂的运动学建模及轨迹跟踪是机械臂控制的基础，在此之上才能使用机械臂完成高精度的力&#x2F;位置控制。机械臂运动学可以分为两个方面，正运动学和逆运动学，正运动学研究的是在已知关节角度和连杆参数的情况下求取末端在空间中的位姿﹐机械臂逆运动学求解与正运动学求解相反,它是在已知机械臂末端空间位姿和连杆参数的情况下求取各个关节角度[12]。本文将以UR5机械臂（如图2-1所示〉作为研究对象，建立机械臂运动学模型。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image001.png" alt="img"></p>
+<p>图2-1 UR5机械臂</p>
+<h2 id="2-2机械臂运动学建模"><a href="#2-2机械臂运动学建模" class="headerlink" title="2.2机械臂运动学建模"></a>2.2机械臂运动学建模</h2><h3 id="2-2-1-D-H法"><a href="#2-2-1-D-H法" class="headerlink" title="2.2.1 D-H法"></a>2.2.1 D-H法</h3><p>六自由度UR5机械臂由六个转动关节和连杆组成，关节之间使用刚性连杆连接。Denavit和Hartenberg 于1955年提出可以使用D-H方法建立机器人运动学模型[13]，D-H方法的具体思路是先分别在各关节建立关节坐标系，确定关节间刚性连杆参数，再依次将关节变化联系起来，计算出机械臂末端相对于基坐标系的变化关系，进而建立机械臂运动学方程。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image003.jpg" alt="img"></p>
+<p>图2-2机械臂连杆参数</p>
+<p>如图2-2所示，D-H法步骤如下:</p>
+<p>(1)建立连杆坐标系，机械臂连杆指的是连接两关节之间刚性杆件，在建立机械臂连杆坐标系时，关节i的前一个连杆命名为连杆i-1，关节i的后一个连杆命名为连杆i，关节i与关节i+1公垂线的交点定义为连杆i坐标系原点[14]。</p>
+<p>(2)描述连杆参数，关节i的轴线与关节i+1的轴线公垂线的长度定义为连杆i的长度;相邻两连杆延长线的交点与关节的轴线平行，关节轴线与连杆延长线垂直，关节角度指的是关节两侧轴线形成的夹角;关节偏置指的是连杆两侧关节的公垂线与在连杆轴线方向上的长度[15]。</p>
+<p>(3)坐标系变换，根据连杆坐标系和关节角度，分别求出平移变换矩阵和旋转变换矩阵[16]。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image005.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image007.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image009.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image011.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image013.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image015.png" alt="img"></p>
+<h2 id="2-2机械臂运动学分析"><a href="#2-2机械臂运动学分析" class="headerlink" title="2.2机械臂运动学分析"></a>2.2机械臂运动学分析</h2><h3 id="2-2-1-UR5机器人坐标系建立"><a href="#2-2-1-UR5机器人坐标系建立" class="headerlink" title="2.2.1 UR5机器人坐标系建立"></a>2.2.1 UR5机器人坐标系建立</h3><p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image002.jpg" alt="img"></p>
+<p>图2.2.1 UR5机器人坐标系</p>
+<p>根据建立的UR5机器人坐标系，确定UR5机器人的D-H参数如表1所示。</p>
+<p>表1 UR5机器人的D-H参数</p>
+<p>Tab.1 D-H Parameters of the UR5 Robot</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>扭转角（αi-1）</th>
+<th>杆长（ai-1）</th>
+<th>关节偏距（di）</th>
+<th>关节转角（θi）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>89.2</td>
+<td>θ1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>90</td>
+<td>0</td>
+<td>0</td>
+<td>θ2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>-425</td>
+<td>0</td>
+<td>θ3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>-392</td>
+<td>109.3</td>
+<td>θ4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>90</td>
+<td>0</td>
+<td>94.75</td>
+<td>θ5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>-90</td>
+<td>0</td>
+<td>82.5</td>
+<td>θ6</td>
+</tr>
+</tbody></table>
+<p>根据公式得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image004.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image006.png" alt="img">               <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image008.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image010.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image012.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image014.png" alt="img">               <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image016.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image018.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image020.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image022.png" alt="img">              <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image024.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image026.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image028.png" alt="img">;</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image030.png" alt="img">&#x3D;T_tool;</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image032.png" alt="img">,两边同时左乘以(<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image004.png" alt="img">)-1,得</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image034.png" alt="img">,</p>
+<p>其中，</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image036.png" alt="img">     由于没有常数项，现将其DH参数做一下更改</p>
+<table>
+<thead>
+<tr>
+<th>i</th>
+<th>扭转角（αi-1）</th>
+<th>杆长（ai-1）</th>
+<th>关节偏距（di）</th>
+<th>关节转角（θi）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>89.2</td>
+<td>θ1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>90</td>
+<td>0</td>
+<td>0</td>
+<td>θ2</td>
+</tr>
+<tr>
+<td>3</td>
+<td>0</td>
+<td>-425</td>
+<td>0</td>
+<td>θ3</td>
+</tr>
+<tr>
+<td>4</td>
+<td>0</td>
+<td>-392</td>
+<td>109.3</td>
+<td>θ4</td>
+</tr>
+<tr>
+<td>5</td>
+<td>90</td>
+<td>0</td>
+<td>94.75</td>
+<td>θ5</td>
+</tr>
+<tr>
+<td>6</td>
+<td>-90</td>
+<td>0</td>
+<td>0</td>
+<td>θ6</td>
+</tr>
+<tr>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+<td>82.5</td>
+<td>0</td>
+</tr>
+</tbody></table>
+<p>即令d6 &#x3D; 0；</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image030.png" alt="img">_new * <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image038.png" alt="img"> &#x3D; T_tool;</p>
+<p>则</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image040.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image042.png" alt="img">以下将最新去除默认为最新位姿矩阵。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image044.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image046.png" alt="img"></p>
+<p>等式两边(2,4)相等得到：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image048.png" alt="img">         （1）</p>
+<p>由万能公式得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image050.png" alt="img"></p>
+<p>为求解结果，必须有<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image052.png" alt="img">，这样才能有解。</p>
+<p>等式两边(2,1)，(2,2)，(2,3)对应相等得到：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image054.png" alt="img">            （2）</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image056.png" alt="img">             （3）</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image058.png" alt="img">             （4）</p>
+<p>由等式（2），（3）得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image060.png" alt="img">       （5）</p>
+<p>由等式（4），（5）得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image062.png" alt="img"></p>
+<p>当S5&#x3D;0时，即<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image064.png" alt="img">，此时机构发生奇异，无法求出<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image066.png" alt="img">。</p>
+<p>由等式（2）（3）得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image068.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image070.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image072.png" alt="img"></p>
+<p>对比矩阵（1,3），（3,3）得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image074.png" alt="img">          （6）</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image076.png" alt="img">              （7）</p>
+<p>得到：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image078.png" alt="img"></p>
+<p>对比矩阵两边元素（1,4），（3,4）</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image080.png" alt="img">     （8）</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image082.png" alt="img">       （9）</p>
+<p>消去<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image084.png" alt="img">，化简为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image086.png" alt="img">             (10)</p>
+<p>式中：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image088.png" alt="img"><br> <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image090.png" alt="img"><br> <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image092.png" alt="img"><br> <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image094.png" alt="img"><br> <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image096.png" alt="img"></p>
+<p>根据等式（10），依据万能公式：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image098.png" alt="img"></p>
+<p>为了求解<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image100.png" alt="img">，必须有<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image102.png" alt="img">,才有解。</p>
+<p>求解<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image100.png" alt="img">后，代入等式（8），（9）得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image104.png" alt="img"><br> <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image106.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image108.png" alt="img"></p>
+<p>根据<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image110.png" alt="img">，<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image112.png" alt="img">可得出其余两个关节角。</p>
+<h2 id="2-3-UR5机器人奇异性分析"><a href="#2-3-UR5机器人奇异性分析" class="headerlink" title="2.3 UR5机器人奇异性分析"></a>2.3 UR5机器人奇异性分析</h2><p>奇异位形是机器人机构学中重要的运动学特性[17]。当机器人处于奇异位形时，末端执行器的位移或旋转运动受到限制。此时，机器人一般实际可操作自由度会减少，末端执行器不能实现某些方向的运动，也会出现某些关节角速度趋于无穷，导致机械手运动失控，机器人不能实现预定的动作[18]。严重影响机器人运动的稳定性,所以奇异位形分析对机器人平稳安全运动具有重要意义[19]。</p>
+<p>对于UR构型的机械臂而言，它有三种奇异位型，通常是以奇异位型处的奇异点作为机械臂关节状态临界点，又可以将机械臂分为2种关节状态属性，这样三种奇异位型就可以产生出机械臂的8种关节状态属性，也就是8种运动学逆解。</p>
+<p>UR构型机械臂的3种奇异位型按照奇异点的位置，可以将其分别表示为肩部奇异、肘部奇异以及腕部奇异，以下是对各奇异位型的描述:</p>
+<p>当<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image002.png" alt="img">时，会导致肩部奇异，此时机械臂末端连杆坐标系的原点O6位于关节1轴线Z1和关节2轴线Z2所构成的平面内，<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image004-16773232593142.png" alt="img">无法求解，当机器人运动到此处时，可导致控制过程中机械臂关节1的角度突变。</p>
+<p>当<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image006-16773232593141.png" alt="img">时，会导致肘部奇异，此时关节轴线Z2、Z3、Z4共面，<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image008-16773232593144.png" alt="img">无法求解，当机器人运动到此处时，可导致控制过程中机械臂关节2的角度发生突变。</p>
+<p>当<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image010-16773232593143.png" alt="img">即<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image012-16773232593145.png" alt="img">或者<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image014-16773232593147.png" alt="img">时，会导致机械臂的腕部奇异，此时轴线Z4和Z6平行，<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image016-16773232593146.png" alt="img">无法求解，当机器人运动到此处附件时，可导致控制过程中机械臂关节6的角度突变。</p>
+<h2 id="2-4机械臂运动学仿真验证"><a href="#2-4机械臂运动学仿真验证" class="headerlink" title="2.4机械臂运动学仿真验证"></a>2.4机械臂运动学仿真验证</h2><p>上一节对于UR5机器人的运动学进行了分析，但是还需要通过仿真来验证其正确性。本节通过MATLAB&#x2F;SIMULINK仿真来对建立的运动学模型进行验证。MATLAB是由美国的MathWorks公司出品的商业数学软件，提供了数据可视化、算法开发、数据分析以及数值计算的高级计算语言和交互式环境。它将矩阵计算、数值分析、数据的科学可视化以及非线性动态系统的建模与仿真等很多非常强大的功能集成在一个视窗环境中，为科学研究、工程设计以及必须进行有效数值计算的众多科学领域提供了一种全面的解决方案[20]。</p>
+<h3 id="2-4-1UR5机器人的正解验证"><a href="#2-4-1UR5机器人的正解验证" class="headerlink" title="2.4.1UR5机器人的正解验证"></a>2.4.1UR5机器人的正解验证</h3><p>  将建立的正解模型搭建在SIMULINK中，仿真模型如图2-2所示。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image018.jpg" alt="img"></p>
+<p>图2.2.1 UR5机器人正解模型</p>
+<p>正解研究的是在已知关节角度和连杆参数的情况下求取末端在空间中的位姿。得到的结果如图2-3所示</p>
+<p>得到的结果如图2-3所示</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image002-16773232921878.jpg" alt="img"></p>
+<p>图2.2.1 UR5机器人正解模型结果<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image004.jpg" alt="img"></p>
+<p>图2.2.1 UR5机器人工具箱正解结果</p>
+<p>与机器人工具箱得到的正解结果进行比对，可知所建立的UR5运动学正解模型正确。</p>
+<h3 id="2-4-2UR5机器人的逆解验证"><a href="#2-4-2UR5机器人的逆解验证" class="headerlink" title="2.4.2UR5机器人的逆解验证"></a>2.4.2UR5机器人的逆解验证</h3><p>将建立的逆解模型搭建在SIMULINK中，仿真模型如图2-2所示。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image006.jpg" alt="img"></p>
+<p>图2.2.1 UR5机器人逆解模型</p>
+<p>与正解相反，逆解是在已知机械臂末端空间位姿和连杆参数的情况下求取各个关节角度，对于逆解的验证，可以指定机器人的末端按照规划的轨迹运动一段距离，这样就可以得到机器人每个电机转动的转角的信息。得到的结果如图2-3所示</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image008.jpg" alt="img"></p>
+<p>图2.2.1 UR5机器人逆解模型结果</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image010.jpg" alt="img"></p>
+<p>图2.2.1 UR5机器人工具箱逆解结果</p>
+<p>与机器人工具箱得到的逆解结果进行比对，可知所建立的UR5运动学逆解模型正确。</p>
+<h2 id="2-5机械臂动力学建模"><a href="#2-5机械臂动力学建模" class="headerlink" title="2.5机械臂动力学建模"></a>2.5机械臂动力学建模</h2><h3 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h3><p>机械臂动力学建模具有很大的意义，但目前国内很多机械臂的创业型公司，只实现了简单了轨迹控制，大部分都停留在通过示教器示教编程轨迹，然后再复现轨迹。这种传统的做法，的确是可以满足目前机械臂市场80%以上的应用场景，但对于复杂的场景，比如力控，牵引示教，高速高精度等场景，仅仅是基于运动学还是无法满足的，这便是机械臂动力学建模的意义之所在。</p>
+<p>机械臂动力学建模主要是为了获取机械臂运动过程中的关节力矩，有四个目的，其一，将运动过程中的关节力矩通过前馈的方式补偿到驱动器三环控制中的最内环电流环，从而提高驱动器的响应速度进而提高机械臂的高速高精控制；第二，碰撞检测，机械臂在运动过程中，在没有外力时候的关节电流是可以通过实时计算关节力矩近似获得的，一旦驱动器电流环的电流瞬间变大，且远超出近似计算获得的电流值，此时可以判断机械臂发生了碰撞，控制器内部程序可以中断当前规划轨迹的运行。第三，机械臂力控制，通过设定机械臂的末端输出力矩，让机械臂以某一力矩作用在被作用对象上。第四，牵引示教，这是协作型机械臂的必备功能，通过给机械臂施加某一外力，让机械臂沿着外力方向运动。    机械臂的动力学建模目前比较普遍的方法有两种，一种是通过拉格朗日方程进行系统性建模，另一种是通过牛顿欧拉公式进行递推建模，两种方法最终的计算结果一致，但就计算的复杂度而言，关节越多牛顿欧拉方法越具有优势，同时牛顿欧拉递推法在编程实现上也比拉格朗日法更为简单。本文将通过牛顿欧拉递推法对UR5六轴机械臂进行动力学建模。</p>
+<h3 id="建模"><a href="#建模" class="headerlink" title="建模"></a>建模</h3><p>在上一章中，介绍了UR5机械臂的运动学模型，假设采用前面的UR5机械臂模型参数，对UR5机械臂进行动力学建模。</p>
+<p>则各连杆坐标系相对于前连杆坐标系的位姿矩阵如下所示：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image002-16773233626259.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image004-167732336262612.png" alt="img">               <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image006-167732336262510.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image008-167732336262611.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image010-167732336262615.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image012-167732336262616.png" alt="img">               <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image014-167732336262614.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image016-167732336262613.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image018-167732336262619.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image020-167732336262617.png" alt="img">            <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image022-167732336262620.png" alt="img"> &#x3D;<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image024-167732336262618.png" alt="img"></p>
+<p>通过将上式中各连杆的位姿矩阵进行位置和姿态分离，可以得到六个连杆坐标系的旋转矩阵<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image026-167732336262622.png" alt="img">和位置坐标<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image028-167732336262621.png" alt="img">。</p>
+<p>假设某一时刻连杆i坐标系和基坐标系固连，由基坐标系向连杆i坐标系递推连杆i在自身坐标系下的角速度，则有：</p>
+<p>​             <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image030-167732336262625.png" alt="img">           （1）</p>
+<p>将连杆i在基坐标系下的角速度<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image032-167732336262623.png" alt="img">转换到连杆i自身动坐标系下的角速度：</p>
+<p>​         <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image034-167732336262624.png" alt="img">     （2）</p>
+<p>令 <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image036-167732336262727.png" alt="img">，则有：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image038-167732336262626.png" alt="img">           （3）</p>
+<p>上式中，轴向量<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image040-167732336262729.png" alt="img">，旋转矩阵<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image042-167732336262728.png" alt="img">。</p>
+<p>对公式（3）中的角速度进行求导可以得到各连杆的角加速度为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image044-167732336262732.png" alt="img">       （4）</p>
+<p>假设机械臂正装，也就是机械臂的基坐标系的Z轴方向和重力加速度的方向平行且反向，则基座的加速度为量<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image046-167732336262730.png" alt="img">。由于某一时刻连杆i坐标系和基坐标系固连，由基坐标系向连杆i坐标系递推连杆i在自身坐标系下的角速度，则有：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image048-167732336262733.png" alt="img">          （5）</p>
+<p>将连杆i在基坐标系下的线速度<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image050-167732336262731.png" alt="img">转换到连杆i自身动坐标系下的线速度：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image052-167732336262734.png" alt="img">       （6）</p>
+<p>同样，令<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image054-167732336262736.png" alt="img">，则有：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image056-167732336262735.png" alt="img"> （7）</p>
+<p>化简上式：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image058-167732336262737.png" alt="img">        （8）</p>
+<p>对上式进行求导可以得到：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image060-167732336262738.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image062-167732336262739.png" alt="img">  （9）</p>
+<p>假设连杆i质心处的加速度为<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image064-167732336262842.png" alt="img">，连杆i质心在连杆i坐标系下的位置为<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image066-167732336262841.png" alt="img">，连杆i的质量为<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image068-167732336262943.png" alt="img">，则有：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image070-167732336262840.png" alt="img">          （10）</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image072-167732336262946.png" alt="img"> （11）</p>
+<p>因此，可以得出连杆i的合力为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image074-167732336262945.png" alt="img">  （12）</p>
+<p>由叉乘公式可以得到：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image076-167732336262944.png" alt="img">        （13）</p>
+<p>化简公式（12）可以得到连杆i的合力为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image078-167732336262947.png" alt="img">    （14）</p>
+<p>由欧拉方程可以得到连杆i的合力矩为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image080-167732336262950.png" alt="img">     （15）</p>
+<p>注意，上式中合力矩向量是连杆坐标系i下的力矩，连杆i惯性矩阵<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image082-167732336262949.png" alt="img">不是连杆质心上的惯性矩阵，而是连杆i坐标系下的惯性矩阵。</p>
+<p>将连杆作为受力分析的研究对象，由机械臂末端连杆开始向机械臂基座连杆递推，分析机械臂的各关节受力。</p>
+<p>对连杆i列力平衡方程，则其在基坐标下合力<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image084-167732336262951.png" alt="img">为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image086-167732336262948.png" alt="img">           （16）</p>
+<p>将其转换到自身的动坐标系下：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image088-167732336262953.png" alt="img">    （17）</p>
+<p>令<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image090-167732336262955.png" alt="img">，则有连杆i坐标系下的合力<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image092-167732336262952.png" alt="img">为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image094-167732336262954.png" alt="img">          （18）</p>
+<p>则连杆i所受外力为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image096-167732336262956.png" alt="img">          （19）</p>
+<p>对连杆i列力矩平衡方程，基坐标系下的合力矩<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image098-167732336262957.png" alt="img">为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image002-167732339776758.png" alt="img">       （20）</p>
+<p>同样，将转矩从基坐标转换到连杆i自身的动坐标系下：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image004-167732339776760.png" alt="img">    （21）</p>
+<p>令，<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image006-167732339776759.png" alt="img">，则有连杆i坐标系下的合力矩<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image008-167732339776761.png" alt="img">为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image010-167732339776763.png" alt="img">      （22）</p>
+<p>则关节i所受力矩为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image012-167732339776762.png" alt="img"> （23）</p>
+<p>联立公式（14），（19），可以得到：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image014-167732339776764.png" alt="img">  （24）</p>
+<p>联立公式（15），（23），可以得到：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image016-167732339776865.png" alt="img">   （25）</p>
+<p>当机器人末端不受外力作用时，</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image018-167732339776867.png" alt="img">      （26）</p>
+<p>将式（26）代入到（24），（25），可以得到<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image020-167732339776866.png" alt="img">，如此反复代入即可求得所有的关节所受到的力和力矩。</p>
+<h3 id="动力学Simscape模型"><a href="#动力学Simscape模型" class="headerlink" title="动力学Simscape模型"></a>动力学Simscape模型</h3><h4 id="2-5-1基于Simscape-Multibody的仿真模型"><a href="#2-5-1基于Simscape-Multibody的仿真模型" class="headerlink" title="2.5.1基于Simscape Multibody的仿真模型"></a>2.5.1基于Simscape Multibody的仿真模型</h4><p>机器人的动力学仿真常用的工具有Adams，V-REP，Gazebo等。本文采用Simscape Multibody 工具箱[21]来进行机械臂模型的快速搭建。通过Simscape Multibody Link插件[22]从SolidWorks 中直接获得实体模块，模型的导入过程十分方便，而且如果SolidWorks中的装配体中各个零件之间约束关系的定义是正确的，那么可以直接得到装配体中上述每一个分离的实体和关节模块。这样最后对生成的模块进行微调和自定义，就可以得到合适的仿真模型。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image022.jpg" alt="img"></p>
+<p>图2.2.1 Solidworks中绘制的模型</p>
+<p>在SolidWorks中绘制好UR5的装配体，如图2-2，经过上述工具导入Simulink 后如图2-3所示。可以从图2-3中看出机器人的实体主要被分成了两种模块：实体(bodies)、关节(joints)。在生成模型的同时还生成了该模型的初始化的配置文件，该文件定义了模型中所有的坐标系之间的关系，所有零件的惯性矩阵、质心位置、关节的初始位置等，可以直接通过修改其中的文件参数并重新加载模型来满足自定义的需求，这对于通过已有三维模型的装配体而进行仿真是非常方便的。</p>
+<p>,<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image024.jpg" alt="img"></p>
+<p>图2.2.1 导入后的Simscape模型</p>
+<p>将修改初始化参数后的图2-3所述模型封装成子模块如图2-4(a)所示，从图中可以看出该模块有力矩输入、角度输出、角速度输出、检测力矩输出和机器人受到的接触力输出。运行之后的模型如图2-4(b)所示，图中对应着图2-3中的各个模块的可视化。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image026.jpg" alt="img"></p>
+<p>图2.2.1 Simscape模型运行可视化效果</p>
+<h1 id="2-6机械臂的位置轨迹规划"><a href="#2-6机械臂的位置轨迹规划" class="headerlink" title="2.6机械臂的位置轨迹规划"></a>2.6机械臂的位置轨迹规划</h1><p>本文只研究笛卡尔空间的轨迹规划，在机械臂的笛卡尔空间轨迹规划中，中间点即插补点的坐标可以通过插补算法得到。得到中间点后，在把中间点的位姿转换成相应的关节角，再通过对关节角的控制，使得机械臂的末端能按照预先规划的路径运动。机械臂的笛卡尔空间轨迹规划位姿控制过程大致如图2.3所示。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image001-167732342076768.png" alt="img"></p>
+<p>图2.2.1 笛卡尔空间轨迹规划位姿控制过程</p>
+<p>空间直线和空间弧线的轨迹规划是笛卡尔空间中不可或缺的两部分，也是本文下文阻抗控制仿真中所规划的两种轨迹。因为空间的曲线可以分割为许多直线和弧线；但是也有会出现直线或弧线连接处尖角问题，为了使运动轨迹连续平滑，本文采用圆弧过度来平滑尖角。在笛卡尔空间中，空间直线和空间弧线的轨迹规划是最常见的两部分，其他空间曲线可以通过这两者来逼近。</p>
+<h2 id="2-6-1空间直线轨迹规划"><a href="#2-6-1空间直线轨迹规划" class="headerlink" title="2.6.1空间直线轨迹规划"></a>2.6.1空间直线轨迹规划</h2><p>空间直线插补就是在该直线起始点和终止点位姿已知的情况下，对轨迹中间点(插补点)的位姿坐标进行求解。</p>
+<p>直线插补法(线性插补)：</p>
+<p>已知起始点位置坐标<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image003.png" alt="img">、终止点位置坐标<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image005-167732342076769.png" alt="img">和插补次数N，则：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image007-167732342076770.png" alt="img"></p>
+<p>对于该直线上的任意一点<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image009-167732342076772.png" alt="img">有：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image011-167732342076771.png" alt="img"></p>
+<p> 通过MATLAB搭建空间直线插值算法，得到结果如图2.4。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image013.jpg" alt="img"></p>
+<p>图2.2.1 直线插值算法结果</p>
+<p>借助MATLAB机器人工具箱进行机械臂笛卡尔空间直线轨迹动态仿真，结果如图2.5。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image015.jpg" alt="img"></p>
+<p>图2.2.1 笛卡尔空间直线轨迹规划仿真</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image017.jpg" alt="img"></p>
+<p>图2.2.1 笛卡尔空间直线轨迹规划关节角度变化曲线</p>
+<h2 id="2-6-1空间圆弧轨迹规划"><a href="#2-6-1空间圆弧轨迹规划" class="headerlink" title="2.6.1空间圆弧轨迹规划"></a>2.6.1空间圆弧轨迹规划</h2><p>在笛卡尔空间圆弧轨迹规划中，为了计算方便，运用坐标变换，即先在圆弧所在平面建立一个新的直角坐标系，在这个直角坐标系中计算圆弧的各插补点在新坐标系中的值。然后再将这些值返回到原来的坐标系中，算出各插补点在原来坐标系中的值。圆弧插补的位移曲线也是采用抛物线过度的线性函数，归一化因子的求解与上述一样。</p>
+<p>三点确定一段弧。设机械臂末端执行器从起始位置P1经过中间点P2到达终点P3，如果这三点不共线，就一定存在从起始点P1经过中间点P2到达终点P3的圆弧轨迹规划算法。通过将空间点转换到二维平面，可将三维空间问题变为二维平面问题。具体算法如下：</p>
+<p>构造新坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image002-167732354115874.png" alt="img">，以<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image004-167732354115875.png" alt="img">为坐标原点，以<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image006-167732354115873.png" alt="img">为U轴，以空间三点平面法向量为W轴，再通过U和W轴叉积得V轴。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image008-167732354115976.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image010-167732354115977.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image012-167732354115980.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image014-167732354115978.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image016-167732354115979.png" alt="img"></p>
+<p>再将空间三点转换到新坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image002-167732354115874.png" alt="img">（<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image018-167732354115984.png" alt="img">在新坐标系上表示为A，B，C），并计算圆心。</p>
+<p>在坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image002-167732354115874.png" alt="img">中，点A为圆心，坐标为（0,0），点B在U轴上，坐标为（bx,0），点C坐标为（cx,cy）。通过向量点积可以求得点<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image020-167732354115981.png" alt="img">和<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image022-167732354115982.png" alt="img">在U,V轴上投影。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image024-167732354115985.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image026-167732354115983.png" alt="img"></p>
+<p>根据A，B，C三点位置可知，圆心必定落在<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image028-167732354115986.png" alt="img">的直线上，因此设圆心坐标为<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image030-167732354115987.png" alt="img">，根据平面圆的标准方程可得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image032-167732354115988.png" alt="img"></p>
+<p>上式中只有h一个未知数，因此可解得：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image034-167732354115989.png" alt="img"></p>
+<p>最后将圆心转换到空间坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image036-167732354115990.png" alt="img">中，上面算得圆心为在U，V上的值，通过与U，V相乘并加上点<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image004-167732354115875.png" alt="img">的偏置可求得圆心在空间坐标系中的坐标，半径通过其中一个点求取与圆心距离即可。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image038-167732354115993.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image040-167732354115994.png" alt="img"></p>
+<p>注：<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image042-167732354115992.png" alt="img"></p>
+<p>  <img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image044-167732354115991.png" alt="img"></p>
+<p>圆弧插补的实现流程为：将空间点转换到三个点形成的平面，将三维问题转换为二维。然后计算圆弧角，并在该平面上进行插补。最后通过变换矩阵，将插补点从二维坐标转换为三维坐标。</p>
+<p>空间圆弧本质上是三个空间点形成平面（平面M）上的圆弧，我们只要求出坐标系在坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image036-167732354115990.png" alt="img">下的变换矩阵T，就可通过坐标变换将三维空间（<img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image036.png" alt="img">）的圆弧变换到二维平面（<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image046-167732354115995.png" alt="img">）的圆弧。</p>
+<p>由平面方程可算得平面M的法矢量的方向数为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image048-167732354115998.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image050-167732354115996.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image052-167732354115997.png" alt="img"></p>
+<p>以平面M的法矢量方向作为新坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image046-167732354115995.png" alt="img">的W轴方向，W轴的方向余弦为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image054-1677323541159100.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image056-167732354115999.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image058-1677323541159102.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image060-1677323541159101.png" alt="img"></p>
+<p>以<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image062-1677323541160106.png" alt="img">方向作为新坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image046-167732354115995.png" alt="img">的U轴方向，U轴方向余弦为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image064-1677323541160104.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image066-1677323541160105.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image068-1677323541160103.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image070-1677323541160107.png" alt="img"></p>
+<p>以U轴方向余弦与W轴的方向余弦的叉乘作为新坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image046-167732354115995.png" alt="img">的V轴的方向余弦，V轴的方向余弦为：</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image072-1677323541160108.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image074-1677323541160110.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image076-1677323541160109.png" alt="img"></p>
+<p>可求出新坐标系<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image046-167732354115995.png" alt="img">在坐标系<img src="file:///C:/Users/RICKYL~1/AppData/Local/Temp/msohtmlclip1/01/clip_image036.png" alt="img">下的变换矩阵</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image078-1677323541160111.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image080-1677323541160112.png" alt="img"></p>
+<p>进而可求出P1，P2，P3点在新坐标系下对应的坐标值，其中i&#x3D;1,2,3</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image082-1677323541164113.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image084-1677323541164114.png" alt="img"></p>
+<p>在实际机械手的空间圆弧的任务操作中，圆弧一般具有确定的插补方向，此处约定在<img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image046-167732354115995.png" alt="img">坐标系中UV平面内逆时针方向为其插补方向，即由P3到P2再到P1的圆弧始终为逆时针圆弧。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image086-1677323541164115.png" alt="img"></p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image088-1677323541164116.png" alt="img"></p>
+<p>通过MATLAB搭建空间圆弧插值算法，得到结果如图2.5。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image090.jpg" alt="img"></p>
+<p>图2.2.1 经过插补得到的空间圆弧轨迹</p>
+<p>借助MATLAB机器人工具箱进行机械臂笛卡尔空间圆弧轨迹动态仿真，结果如图2.5。</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image092.jpg" alt="img"></p>
+<p>图2.2.1 笛卡尔空间圆弧轨迹规划仿真</p>
+<p><img src="/../images/%E5%85%AD%E8%BD%B4%E6%9C%BA%E6%A2%B0%E8%87%82%E6%A6%82%E8%BF%B0/clip_image094.jpg" alt="img"></p>
+<p>图2.2.1 笛卡尔空间圆弧轨迹规划关节角度变化曲线</p>
+<p>本章小结</p>
+<p>本章首先建立了机器人的D-H坐标，进行了UR5机器人的正、逆运动学求解，分析了奇异性位姿，通过搭建SIMULINK模型并与机器人工具箱进行比较，验证了推导及算法的正确性。针对动力学部分，运用牛顿欧拉法推导了UR5机器人的动力学模型，并在Simscape中建立了对应的物理模型。最后介绍了空间直线、圆弧曲线轨迹规划并运用MATLAB机器人工具箱进行了仿真。</p>
 
                 
             </div>
