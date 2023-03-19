@@ -431,7 +431,7 @@
 <p>​                                                                 部分受力情况描述，这里标注的Ω是角度，M是扭矩</p>
 <p>这里值得注意的点就在于，在上述情况下，上层机构的实际受力情况应为用蓝色标注处的受力情况<br>$$<br>F′&#x3D;(FxG,FyG,MG)T<br>$$<br>，但是考虑到实际情况中作用到上层机构的上述力系可以向关节P处简化，最终可以通过下列的数学运算等效为<br>$$<br>\textbf{F}&#x3D;(F_x, F_y, M_T)^T：<br>\begin{cases}<br>F_x&#x3D;F_{xG}\<br>F_y&#x3D;F_{yG}\<br>M_T&#x3D;M_G+F_{xG}\sin\phi+F_{yG}\cos\phi<br>\end{cases}<br>$$<br>因此最终在受力分析一步输入的内容可以为F向量而不是F′向量。</p>
 <p>综上所述，控制器需要的结果应该是这样两个部分：</p>
-<p>能够依赖当前构型Θ&#x3D;(Ω1,Ω2,ψ)T计算出每一个上层机构期望受力情况向量F&#x3D;(Fx,Fy,MT)T计算出当前需要每个执行器输出的扭矩向量M&#x3D;(M1,M2,Mm)，即需要得到一组这样的定量表述的映射关系<br>$$<br>\displaystyle\textbf{F},\Theta\xrightarrow{f}\textbf{M}<br>$$<br>能够根据当前的执行器工作状态向量M和当前构型Θ计算出上层机构的实际受力情况辅助进行地形观测，即即需要得到一组这样的定量表述的映射关系<br>$$<br>\displaystyle\textbf{M},\Theta\xrightarrow{g}\textbf{F}<br>$$</p>
+<p>能够依赖当前构型Θ&#x3D;(Ω1,Ω2,ψ)T计算出每一个上层机构期望受力情况向量F&#x3D;(Fx,Fy,MT)T计算出当前需要每个执行器输出的扭矩向量M&#x3D;(M1,M2,Mm)，即需要得到一组这样的定量表述的映射关系<br>$$<br>\displaystyle\textbf{F},\Theta\xrightarrow{f}\textbf{M}<br>$$<br>能够根据当前的执行器工作状态向量M和当前构型Θ计算出上层机构的实际受力情况辅助进行地形观测，即需要得到一组这样的定量表述的映射关系<br>$$<br>\displaystyle\textbf{M},\Theta\xrightarrow{g}\textbf{F}<br>$$</p>
 <h3 id="2-分析结果说明"><a href="#2-分析结果说明" class="headerlink" title="2.分析结果说明"></a>2.分析结果说明</h3><p>电控同学给出的分析结果如下所示：</p>
 <p>受力分析基本思路：</p>
 <p><img src="/../images/Robomaster%E8%BD%AE%E8%85%BF%E5%BC%8F%E5%B9%B3%E8%A1%A1%E6%AD%A5%E5%85%B5%E8%AE%BE%E8%AE%A1/1672315621835-1b62a500-a440-49ea-9ed9-0b1b648e661d.jpeg" alt="受力分析.jpg"></p>
